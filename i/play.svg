@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="play" viewBox="0 0 280 280">
+        <defs>
+            <filter id="a" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
+                <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+                <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0" in="shadowBlurOuter1"/>
+            </filter>
+        </defs>
+
+        <g fill="none" fill-rule="evenodd">
+            <use fill="#000" filter="url(#a)" xlink:href="#b" transform="translate(0 0)"/>
+            <g fill="#FFF">
+                <circle id="b" cx="140" cy="140" r="116"  style="stroke: white; stroke-width: 8px; fill:rgba(0,0,0, 0.3) "/>
+                <path d="M112 85 l0 110 l84 -55 Z"/>
+            </g>
+        </g>
+    </symbol>
+
+    <view id="play-view" viewBox="0 0 280 280" />
+    <use xlink:href="#play" width="280" height="280" x="0" y="0" />
+</svg>

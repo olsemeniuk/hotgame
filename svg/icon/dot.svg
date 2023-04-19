@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 11 11">
+<defs>
+    <style>
+      .cls-1 {
+        fill: #f0f0f0;
+      }
+    </style>
+  </defs>
+  <circle id="promocode_dot" class="cls-1" cx="5.5" cy="5.5" r="3"/>
+</svg>

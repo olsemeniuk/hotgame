@@ -1,0 +1,25 @@
+{
+    "name": "Hot Game",
+    "short_name": "Hot Game",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon_512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#bb280f",
+    "background_color": "#ffffff",
+    "start_url": "https://hot-game.info/",
+    "display": "standalone"
+}
