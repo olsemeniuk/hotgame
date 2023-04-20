@@ -130,6 +130,10 @@ textarea {
 }
 
 @media (min-width: 769px) {
+  .mobile-only {
+    display: none;
+  }
+
   .hg-block-desktop {
     -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
@@ -5374,13 +5378,88 @@ a:hover>.btn-extension-header.opera-addons-icon {
     width: calc(100% - 6px);
   }
 
+  /* my styles */
+  .game-page .container {
+    width: 100%;
+  }
+
+  /* my styles */
+  .game .short-game-description {
+    box-shadow: none;
+  }
+
   header.container {
     background-color: #f00000;
     width: 100%;
     text-align: center;
-
     -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.65);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.65);
+  }
+
+  .game-page header.container {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    padding: 0 14px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  /* my styles */
+  .game-page header .top-logo-wrap {
+    padding: 2px;
+    background-color: #bb280f;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* search field styles */
+  .open-search-btn {
+    margin-left: auto;
+    padding: 24px 15px;
+    font: inherit;
+    background-color: transparent;
+    background-image: url("../svg/icon/search.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: url(#white);
+    border: none;
+    cursor: pointer;
+  }
+
+  .game-page .search-block {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+  }
+
+  .game-page .search-block--active {
+    transform: translateX(0);
+  }
+
+  .game-page .search-form {
+    height: 100%;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .game-page .search-form > input[type="submit"] {
+    width: 40px;
+    height: 100%;
+    margin: 0;
+    background-size: 80%;
+    cursor: pointer;
+  }
+
+  .game-page .search-form > .search-input {
+    box-sizing: border-box;
+    height: 100%;
+    margin-top: 0;
   }
 
   header .top-logo {
@@ -5401,6 +5480,15 @@ a:hover>.btn-extension-header.opera-addons-icon {
     font-size: 16px;
   }
 
+  /* new styles */
+  .game-page header .top-logo {
+    margin: 0;
+  }
+
+  .game-page header a.logo-text {
+    display: none;
+  }
+
   .logo-text .logo-black {
     display: none;
   }
@@ -5417,8 +5505,66 @@ a:hover>.btn-extension-header.opera-addons-icon {
     left: 11px;
     width: 30px;
     height: 30px;
-    background-image: url('../svg/icon/menu.svg');
+    margin: 10px 35px 0 0;
+    /* changed menu-icon */
+    background-image: url('../svg/icon/new-menu-icon.svg');
+    background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  /* new styles */
+  .game-page header .btn-menu {
+    position: static;
+    width: 25px;
+    height: 25px;
+  }
+/* new styles */
+  .game-page .btn-share,
+  .game-rating-button {
+    position: absolute;
+    top: 340px;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .game-page .btn-share {
+    left: 10px;
+  }
+
+  .game-rating-button {
+    right: 10px;
+    background-image: url('../svg/icon/game-rating-vote.svg');
+    background-size: contain;
+  }
+
+  .game .game-info {
+    position: relative;
+    margin-top: -15px;
+    padding-top: 25px;
+    background-color: #ffffff;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .game-title span:not(.red) {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+  }
+/* new styles */
+  .game-page .btn-icon-new.btn-share:hover {
+    filter: none;
   }
 
   header .btn-back {
@@ -5497,6 +5643,76 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   header .user-menu .user-menu-buttons>a .btn-icon-new {
     margin-right: 15px;
+  }
+
+  /* mobile slider */
+  .game-images {
+    line-height: 0;
+  }
+
+  .game-images__item img {
+    width: 100%;
+    height: 395px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .game-page .hg-block .youtube-player {
+    z-index: -1;
+    height: 395px;
+    padding: 0;
+  }
+
+  .game-images__dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    transform: translateX(-50%);
+  }
+
+  .game-images__dots li {
+    line-height: 0;
+  }
+
+  .game-images__dots li+li {
+    margin-left: 3px;
+  }
+
+  .game-images__dots button {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 9px;
+    height: 9px;
+    font-size: 0;
+    line-height: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .game-images__dots button::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+  }
+
+  .game-images__dots .slick-active button::before {
+    width: 9px;
+    height: 9px;
+    background-color: #ffffff;
   }
 
   .accordion-wrapper .container {
@@ -5712,20 +5928,24 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: none;
   }
 
+  /* new styles */
   .game .short-game-description {
-    max-width: 267px;
+    /* max-width: 267px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
+    background-color: transparent;
+    border-radius: 0;
   }
 
   .game .left-side .poster {
+    /* new styles */
     margin-left: auto;
     margin-right: auto;
     display: block;
 
     max-width: 267px;
     width: 100%;
-    height: auto;
+    /* height: auto; */
   }
 
   .game .left-side-mobile-tabs-wrap {

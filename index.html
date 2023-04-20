@@ -28,6 +28,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hogwarts Legacy купить ключ на ПК от 1299 руб">
   <meta property="og:url" content="https://hot-game.info/game/Hogwarts-Legacy">
+  <!-- подключение стилей для slick-slider -->
+  <link rel="stylesheet" type="text/css" href="./css/slick.css">
   <link rel="stylesheet" type="text/css" href="./css/cssreset-context-min.css">
   <link rel="stylesheet" type="text/css" href="./css/jquery-ui-1.12.1.min.css">
   <link rel="stylesheet" type="text/css" href="./css/jquery-ui-slider-pips.min.css">
@@ -614,7 +616,7 @@
   </style>
 </head>
 
-<body>
+<body class="game-page">
 
 
   <div class="page-bg-wrap">
@@ -757,6 +759,9 @@
         <span class="btn-icon-new btn-catalog"></span><span>Каталог</span>
       </a>
     </div>
+
+    <!-- new element -->
+    <button class="open-search-btn" type="button" aria-label="Открыть поле для поиска."></button>
   </header>
 
   <div class="container content-container">
@@ -1205,7 +1210,7 @@
       <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
         style="display: none;"></ul>
     </section>
-    <div style="margin-bottom: 12px;"></div>
+    <!-- <div style="margin-bottom: 12px;"></div> -->
 
 
 
@@ -1216,11 +1221,48 @@
       <aside class="yui3-cssreset left-side">
 
         <div class="hg-block short-game-description" style="order: -5;">
-          <img alt="Hogwarts Legacy постер (cover)" title="Hogwarts Legacy постер (cover)"
-            src="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg" width="267"
-            height="375"
-            srcset="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg 281w, https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster2.jpeg 563w"
-            sizes="(max-width: 281px) 100vw, 281px" itemprop="image" class="poster">
+          <div class="game-images">
+            <div class="game-images__item">
+              <img alt="Hogwarts Legacy постер (cover)" title="Hogwarts Legacy постер (cover)"
+              src="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg" width="267"
+              height="375"
+              srcset="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg 281w, https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster2.jpeg 563w"
+              sizes="(max-width: 281px) 100vw, 281px" itemprop="image" class="poster">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/poster_game/0002/07/thumb_106379_poster_game_slide.jpeg">
+            </div>
+            <div class="game-images__item game-images__video mobile-only">
+              <div class="youtube-player" data-id="BsC-Rl9GYy0"><img src="https://i.ytimg.com/vi/BsC-Rl9GYy0/hqdefault.jpg">
+                <div class="play"></div>
+              </div>
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106373_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106374_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106375_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106376_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106423_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/19/thumb_118686_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/19/thumb_118687_slide_game_slide.jpeg">
+            </div>
+            <div class="game-images__item mobile-only">
+              <img src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106424_slide_game_slide.jpeg">
+            </div>
+          </div>
+          <button class="game-rating-button mobile-only" type="button"></button>
           <div class="game-info">
             <div class="game-title">
               <span itemprop="name">Hogwarts Legacy</span> (<span class="red">Windows, PS 4, PS 5, Xbox One, Xbox SX,
@@ -2269,13 +2311,11 @@
 
           </div>
         </div>
-        <div class="hg-block short-game-description-mobile">
+        <!-- <div class="hg-block short-game-description-mobile">
           <div class="left-side-mobile-tabs-wrap">
             <ul id="lieft_side_tabs" class="left-side-mobile-tabs" style="transform: translateX(-209.225px);">
               <li data-index="0" class="">Инфо</li>
               <li data-index="1" class="">Системные требования</li>
-              <li data-index="2" class="">Трейлер</li>
-              <li id="mobile_slider_tab" data-index="3" class="active">Слайды</li>
             </ul>
           </div>
 
@@ -2416,58 +2456,12 @@
                   </table>
                 </div>
               </div>
-              <div data-index="2" style="width: 0px; left: 0px; transition-duration: 0ms; transform: translateX(0px);">
-                <div class="hg-block video-block">
-                  <div class="youtube-player" data-id="BsC-Rl9GYy0"><img
-                      src="https://i.ytimg.com/vi/BsC-Rl9GYy0/hqdefault.jpg">
-                    <div class="play"></div>
-                  </div>
-                </div>
-              </div>
-              <div data-index="3" style="width: 0px; left: 0px; transition-duration: 0ms; transform: translateX(0px);">
-                <div id="mobile_slides" style="width: 338.8px; height: 191px;">
-                  <div class="mobile-slide-controls">
-                    <div class="btn-icon-new btn-arrow-left control control-left"></div>
-                    <div class="btn-icon-new btn-arrow-right control control-right"></div>
-                  </div>
-                  <ul class="mobile-slides" style="width: 3049.2px; margin-left: -338.8px;">
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/poster_game/0002/07/thumb_106379_poster_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106373_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106374_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106375_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106376_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106423_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/19/thumb_118686_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/19/thumb_118687_slide_game_slide.jpeg">
-                    </li>
-                    <li class="mobile-slide" style="width: 338.8px; height: 191px;"><img
-                        src="https://hot-game.info/uploads/media/slide_game/0002/07/thumb_106424_slide_game_slide.jpeg">
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
-        <script type="text/javascript" async=""
-          <!-- src="https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"></script> -->
+        <!-- <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"></script> -->
         <script type="text/template" id="game_slider_template">
                     <div id="game_slider_wrapper" class="hg-block game-accordion-wrapper">
                         <div id="accordion2" class="accordion-slider game-slider">
@@ -4583,7 +4577,7 @@
     </div>
   </div><!--noindex-->
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function (d, w, c) {
       (w[c] = w[c] || []).push(function () {
         try {
@@ -4615,13 +4609,14 @@
   </script>
   <noscript>
     <div><img src="https://mc.yandex.ru/watch/38689330" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
+  </noscript> -->
   <!-- /Yandex.Metrika counter -->
   <!--/noindex-->
   <script src="./js/jquery-3.1.1.min.js"></script>
   <script src="./js/jquery-ui-1.12.1.min.js"></script>
   <script src="./js/jquery.ui.touch-punch.min.js"></script>
-
+  <!-- подключение скриптов для slick-slider -->
+  <script src="./js/slick.min.js"></script>
   <script src="./js/jquery-ui-slider-pips.min.js"></script>
 
   <script src="./js/jquery.accordionSlider.custom.min.js"></script>
