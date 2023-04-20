@@ -130,7 +130,8 @@ textarea {
 }
 
 @media (min-width: 769px) {
-  .mobile-only {
+  .mobile-only,
+  .open-search-btn {
     display: none;
   }
 
@@ -5436,16 +5437,36 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-page .search-block {
     box-sizing: border-box;
     position: absolute;
+    top: 10px;
+    right: 15px;
     z-index: 1000;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    margin-bottom: 0;
+    border-radius: 15px;
+    transform: scale(0);
+    transition: transform 0.3s 2s, 
+                right 0.3s 1.7s,
+                width 0.7s 1s, 
+                top 0.3s 0.5s,
+                height 0.3s 0.3s,
+                border-radius 0.3s;
+  }
+  
+  .game-page .search-block--active {
+    top: 0;
+    right: 0;
     width: 100%;
     height: 40px;
-    margin-bottom: 0;
-    transform: translateY(-100%);
-    transition: all 0.3s;
-  }
-
-  .game-page .search-block--active {
-    transform: translateX(0);
+    border-radius: 0 0 15px 15px;
+    transform: scale(1);
+    transition: transform 0.3s, 
+                right 0.3s 0.4s,
+                width 0.7s 0.6s, 
+                top 0.3s 1.5s,
+                height 0.3s 1.7s,
+                border-radius 0.3s 2s;
   }
 
   .game-page .search-form {
@@ -5458,13 +5479,22 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: 100%;
     margin: 0;
     background-size: 80%;
+    background-position: 50% 55%;
     cursor: pointer;
   }
 
   .game-page .search-form > .search-input {
     box-sizing: border-box;
+    width: 0;
     height: 100%;
     margin-top: 0;
+    padding: 0;
+    transition: all 0.1s 1s;
+  }
+
+  .game-page .search-block--active .search-input {
+    width: calc(100% - 40px);
+    padding: 5px;
   }
 
   header .top-logo {
@@ -5527,7 +5557,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 /* new styles */
   .game-page .btn-share,
-  .game-rating-button {
+  .game-page .btn-save-game {
     position: absolute;
     top: 325px;
     width: 30px;
@@ -5535,8 +5565,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: none;
     border: none;
     border-radius: 50%;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
@@ -5544,14 +5573,44 @@ a:hover>.btn-extension-header.opera-addons-icon {
     transition: all 0.3s;
   }
 
+  .game-page .btn-share::after,
+  .game-page .btn-save-game::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+  }
+
+  .game-page .btn-share::after {
+    width: 20px;
+    height: 20px;
+    background-image: url("../svg/icon/share.svg");
+  }
+
+  .game-page .btn-save-game::after {
+    left: 54%;
+    width: 25px;
+    height: 25px;
+    background-image: url("../svg/icon/save-game.svg");
+  }
+
   .game-page .btn-share {
     left: 10px;
   }
 
-  .game-rating-button {
+  .game-page .game .btn-save-game{
     right: 10px;
-    background-image: url('../svg/icon/game-rating-vote.svg');
-    background-size: contain;
+    font-size: 0;
+    background-position: 57% 50%;
+    background-size: 80%;
+    filter: none;
+  }
+
+  .btn-save-game.active::after {
+    filter: url(#active)
   }
 
   .game .game-info {
@@ -5575,7 +5634,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     color: #000000;
   }
 /* new styles */
-  .game-page .btn-icon-new.btn-share:hover {
+  .game-page .btn-icon-new.btn-share:hover,
+  .btn-icon-new.btn-save-game:not(.active):hover {
     filter: none;
   }
 
@@ -6221,7 +6281,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .game-page .btn-share, 
-  .game-rating-button {
+  .btn-save-game {
     top: 200px;
   }
 

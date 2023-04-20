@@ -1375,7 +1375,7 @@ $(function () {
     if (!event.target.closest('.game-images__dots')) {
 
       $('.game-page header').toggleClass('hide-top');
-      $('.game-rating-button').toggleClass('hide-right');
+      $('.btn-save-game').toggleClass('hide-right');
       $('.game-page .btn-share').toggleClass('hide-left');
       $('.game-images__dots').toggleClass('game-images__dots--hide');
       $('.game .game-info').toggleClass('game-info--move');
@@ -1385,55 +1385,3 @@ $(function () {
   }
 
 });
-
-// const openSearchButton = document.querySelector('.open-search-btn');
-// const searchBlock = document.querySelector('.search-block');
-
-// openSearchButton.onclick = showSearchForm;
-// document.onclick = hideSearchForm;
-
-// function showSearchForm() {
-//   searchBlock.classList.add('search-block--active');
-// }
-
-// function hideSearchForm(event) {
-//   const { target } = event;
-//   const isSearchBlock = Boolean(target.closest('.search-block'));
-//   const isOpenButton = Boolean(target.closest('.open-search-btn'));
-
-//   if (!isSearchBlock && !isOpenButton) {
-//     searchBlock.classList.remove('search-block--active');
-//   }
-// }
-
-// const gameHeader = document.querySelector('.game-page header');
-// const gameRatingButton = document.querySelector('.game-rating-button');
-// const shareButton = document.querySelector('.game-page .btn-share');
-// const gameImagesSlider = document.querySelector('.game-images');
-// const gameImagesItem = document.querySelectorAll('.game-images__item');
-// const gameInfo = document.querySelector('.game .game-info');
-
-// gameImagesSlider.onclick = hideItemsOnSlider;
-
-// function hideItemsOnSlider(event) {
-//   const {target} = event;
-
-//   if (searchBlock.classList.contains('search-block--active')) {
-//     searchBlock.classList.remove('search-block--active');
-//     return;
-//   }
-
-//   if (!target.closest('.game-images__dots')) {
-//     const sliderDots = document.querySelector('.game-images__dots');
-  
-//     gameHeader.classList.toggle('hide-top');
-//     gameRatingButton.classList.toggle('hide-right');
-//     shareButton.classList.toggle('hide-left');
-//     sliderDots.classList.toggle('game-images__dots--hide');
-//     gameInfo.classList.toggle('game-info--move');
-  
-//     gameImagesItem.forEach(item => {
-//       item.classList.toggle('game-images__item--bigger');
-//     })
-//   }
-// }
