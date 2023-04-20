@@ -1193,7 +1193,7 @@ $(function () {
       'src': embed.replace('ID', $(this).data('id')),
       'frameborder': 0,
       'allowfullscreen': 1,
-      'allow': 'autoplay; fullscreen'
+      'allow': 'autoplay; fullscreen',
     });
     $iframe.on('load', function () {
       $(this).get(0).contentWindow.postMessage(JSON.stringify({
@@ -1203,6 +1203,7 @@ $(function () {
     });
     $(this).html($iframe);
   }
+
 
 
   var leftSideTabsContent = new Swipe(document.getElementById('left_side_tabs_content'), {
@@ -1364,5 +1365,37 @@ function hideSearchForm(event) {
 
   if (!isSearchBlock && !isOpenButton) {
     searchBlock.classList.remove('search-block--active');
+  }
+}
+
+const gameHeader = document.querySelector('.game-page header');
+const gameRatingButton = document.querySelector('.game-rating-button');
+const shareButton = document.querySelector('.game-page .btn-share');
+const gameImagesSlider = document.querySelector('.game-images');
+const gameImagesItem = document.querySelectorAll('.game-images__item');
+const gameInfo = document.querySelector('.game .game-info');
+
+gameImagesSlider.onclick = hideItemsOnSlider;
+
+function hideItemsOnSlider(event) {
+  const {target} = event;
+
+  if (searchBlock.classList.contains('search-block--active')) {
+    searchBlock.classList.remove('search-block--active');
+    return;
+  }
+
+  if (!target.closest('.game-images__dots')) {
+    const sliderDots = document.querySelector('.game-images__dots');
+  
+    gameHeader.classList.toggle('hide-top');
+    gameRatingButton.classList.toggle('hide-right');
+    shareButton.classList.toggle('hide-left');
+    sliderDots.classList.toggle('game-images__dots--hide');
+    gameInfo.classList.toggle('game-info--move');
+  
+    gameImagesItem.forEach(item => {
+      item.classList.toggle('game-images__item--bigger');
+    })
   }
 }
