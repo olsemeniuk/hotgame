@@ -1225,19 +1225,19 @@ $(function () {
     leftSideTabsContent.slide($(this).data('index'));
   });
 
-  function swiperInit() {
-    leftSideTabChange($('.left-side-mobile-tabs li.active'));
-    var index = $('.left-side-mobile-tabs li.active').data('index');
+  // function swiperInit() {
+  //   leftSideTabChange($('.left-side-mobile-tabs li.active'));
+  //   var index = $('.left-side-mobile-tabs li.active').data('index');
 
-    setTimeout(function () {
+  //   setTimeout(function () {
 
-      var $element = $('.left-side-tabs-content-wrap > div:nth-child(' + (index + 1) + ')');
-      var rec = $element.get(0).getBoundingClientRect();
-      $element.parent().animate({ height: rec.height }, 100);
-    }, 10)
-  }
+  //     var $element = $('.left-side-tabs-content-wrap > div:nth-child(' + (index + 1) + ')');
+  //     var rec = $element.get(0).getBoundingClientRect();
+  //     $element.parent().animate({ height: rec.height }, 100);
+  //   }, 10)
+  // }
 
-  swiperInit();
+  // swiperInit();
 
   function leftSideTabChange($this) {
     $this.siblings().removeClass('active');
@@ -1255,8 +1255,8 @@ $(function () {
 
     var $list = $this.parent();
 
-    var itemRec = $this.get(0).getBoundingClientRect();
-    var listRec = $list.get(0).getBoundingClientRect();
+    // var itemRec = $this.get(0).getBoundingClientRect();
+    // var listRec = $list.get(0).getBoundingClientRect();
 
     var newX = listRec.width / 2 - itemRec.width / 2 - (itemRec.left - listRec.left);
 
@@ -1346,56 +1346,94 @@ $(function () {
       ]
     })
   }
+
+  $('.open-search-btn').on('click', showSearchForm);
+  $(document).on('click', hideSearchForm);
+
+  function showSearchForm() {
+    $('.search-block').addClass('search-block--active');
+  }
+
+  function hideSearchForm(event) {
+    const isSearchBlock = event.target.closest('.search-block');
+    const isOpenButton = event.target.closest('.open-search-btn');
+
+    if (!isSearchBlock && !isOpenButton) {
+      $('.search-block').removeClass('search-block--active');
+    }
+  }
+
+
+  $('.game-images').on('click', hideItemsOnSlider);
+
+  function hideItemsOnSlider(event) {
+
+    if ($('.search-block').hasClass('search-block--active')) {
+      $('.search-block').removeClass('search-block--active');
+      return;
+    }
+    if (!event.target.closest('.game-images__dots')) {
+
+      $('.game-page header').toggleClass('hide-top');
+      $('.game-rating-button').toggleClass('hide-right');
+      $('.game-page .btn-share').toggleClass('hide-left');
+      $('.game-images__dots').toggleClass('game-images__dots--hide');
+      $('.game .game-info').toggleClass('game-info--move');
+
+      $('.game-images__item').toggleClass('game-images__item--bigger');
+    }
+  }
+
 });
 
-const openSearchButton = document.querySelector('.open-search-btn');
-const searchBlock = document.querySelector('.search-block');
+// const openSearchButton = document.querySelector('.open-search-btn');
+// const searchBlock = document.querySelector('.search-block');
 
-openSearchButton.onclick = showSearchForm;
-document.onclick = hideSearchForm;
+// openSearchButton.onclick = showSearchForm;
+// document.onclick = hideSearchForm;
 
-function showSearchForm() {
-  searchBlock.classList.add('search-block--active');
-}
+// function showSearchForm() {
+//   searchBlock.classList.add('search-block--active');
+// }
 
-function hideSearchForm(event) {
-  const { target } = event;
-  const isSearchBlock = Boolean(target.closest('.search-block'));
-  const isOpenButton = Boolean(target.closest('.open-search-btn'));
+// function hideSearchForm(event) {
+//   const { target } = event;
+//   const isSearchBlock = Boolean(target.closest('.search-block'));
+//   const isOpenButton = Boolean(target.closest('.open-search-btn'));
 
-  if (!isSearchBlock && !isOpenButton) {
-    searchBlock.classList.remove('search-block--active');
-  }
-}
+//   if (!isSearchBlock && !isOpenButton) {
+//     searchBlock.classList.remove('search-block--active');
+//   }
+// }
 
-const gameHeader = document.querySelector('.game-page header');
-const gameRatingButton = document.querySelector('.game-rating-button');
-const shareButton = document.querySelector('.game-page .btn-share');
-const gameImagesSlider = document.querySelector('.game-images');
-const gameImagesItem = document.querySelectorAll('.game-images__item');
-const gameInfo = document.querySelector('.game .game-info');
+// const gameHeader = document.querySelector('.game-page header');
+// const gameRatingButton = document.querySelector('.game-rating-button');
+// const shareButton = document.querySelector('.game-page .btn-share');
+// const gameImagesSlider = document.querySelector('.game-images');
+// const gameImagesItem = document.querySelectorAll('.game-images__item');
+// const gameInfo = document.querySelector('.game .game-info');
 
-gameImagesSlider.onclick = hideItemsOnSlider;
+// gameImagesSlider.onclick = hideItemsOnSlider;
 
-function hideItemsOnSlider(event) {
-  const {target} = event;
+// function hideItemsOnSlider(event) {
+//   const {target} = event;
 
-  if (searchBlock.classList.contains('search-block--active')) {
-    searchBlock.classList.remove('search-block--active');
-    return;
-  }
+//   if (searchBlock.classList.contains('search-block--active')) {
+//     searchBlock.classList.remove('search-block--active');
+//     return;
+//   }
 
-  if (!target.closest('.game-images__dots')) {
-    const sliderDots = document.querySelector('.game-images__dots');
+//   if (!target.closest('.game-images__dots')) {
+//     const sliderDots = document.querySelector('.game-images__dots');
   
-    gameHeader.classList.toggle('hide-top');
-    gameRatingButton.classList.toggle('hide-right');
-    shareButton.classList.toggle('hide-left');
-    sliderDots.classList.toggle('game-images__dots--hide');
-    gameInfo.classList.toggle('game-info--move');
+//     gameHeader.classList.toggle('hide-top');
+//     gameRatingButton.classList.toggle('hide-right');
+//     shareButton.classList.toggle('hide-left');
+//     sliderDots.classList.toggle('game-images__dots--hide');
+//     gameInfo.classList.toggle('game-info--move');
   
-    gameImagesItem.forEach(item => {
-      item.classList.toggle('game-images__item--bigger');
-    })
-  }
-}
+//     gameImagesItem.forEach(item => {
+//       item.classList.toggle('game-images__item--bigger');
+//     })
+//   }
+// }

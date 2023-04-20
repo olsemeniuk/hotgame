@@ -5560,6 +5560,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     padding-top: 25px;
     background-color: #ffffff;
     border-radius: 20px 20px 0 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     transition: all 0.3s;
   }
 
@@ -6203,11 +6204,11 @@ a:hover>.btn-extension-header.opera-addons-icon {
   /* new styles */
   .game-images__item img,
   .game-images__video {
-    height: 220px;
+    height: 270px;
   }
 
   .game-page .hg-block .youtube-player{
-    height: 190px;
+    height: 220px;
   }
 
   .game-page header .btn-menu {
@@ -6215,9 +6216,13 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: 20px;
   }
 
+  .game .left-side .poster {
+    width: auto;
+  }
+
   .game-page .btn-share, 
   .game-rating-button {
-    top: 150px;
+    top: 200px;
   }
 
   .sys-rec-header-block {
