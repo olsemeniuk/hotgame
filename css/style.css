@@ -6239,7 +6239,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     filter: url(#active)
   }
 
-  .game .game-info {
+  .game .game-info-main {
     position: relative;
     margin-top: -30px;
     padding-top: 25px;
@@ -6253,7 +6253,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     transform: translateY(15px);
   }
 
-  .game-title span:not(.red) {
+  .game-info-main > .game-title span:not(.game-platforms-desktop) {
     display: block;
     margin-bottom: 12px;
     font-size: 16px;
@@ -6311,6 +6311,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
   }
 
   .game-info__list {
@@ -6327,12 +6328,36 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: inline-block;
   }
 
-  .game .game-title .game-platforms-desktop {
+  .game .game-title .game-platforms-desktop,
+  .hg-block .short-game-description-mobile .game-title {
     display: none;
+  }
+
+  .hg-block .short-game-description-mobile,
+  .short-game-description-mobile .game-info__details {
+    display: block;
+  }
+
+  .hg-block .short-game-description-mobile {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  .game-info__details {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .game-info__details--show-text {
+    white-space: normal;
+    overflow: auto;
+    text-overflow: clip;
   }
 }
 
 @media (max-width: 480px) {
+
   /* new styles */
   .game-images__item img,
   .game-images__video {

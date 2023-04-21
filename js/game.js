@@ -1,4 +1,153 @@
 $(function () {
+  // START
+  function showHideButtons(isMobile) {
+    if (!isMobile) {
+
+      $('#show_share_btns').on('click', showShareButtons);
+      $('#hide_share_btns').on('click', hideShareButtons);
+      $('#show_subscription_btns').on('click', showSubscrButtons);
+      $('#hide_subscription_btns').on('click', hideSubscrButtons);
+
+      $('#show_share_btns').off('click', showMobileShareButtons);
+
+    } else {
+
+      $('#show_share_btns').off('click', showShareButtons);
+      $('#hide_share_btns').off('click', hideShareButtons);
+      $('#show_subscription_btns').off('click', showSubscrButtons);
+      $('#hide_subscription_btns').off('click', hideSubscrButtons);
+
+      $('#show_share_btns').on('click', showMobileShareButtons);
+
+      $('#show_subscription_btns').on('click', function () {
+        $('.subscription-btns-block').css('display', 'flex');
+        $('#show_subscription_btns').hide();
+
+        return false;
+      })
+
+      $('#hide_subscription_btns').on('click', function () {
+        $('.subscription-btns-block').hide();
+        $('#show_subscription_btns').css('display', 'flex');
+      })
+    }
+  }
+
+  function showShareButtons() {
+    $('.share-btns-block').css('display', 'flex');
+    $('.subscribe-btns-block').hide();
+  }
+
+  function hideShareButtons() {
+    $('.share-btns-block').hide();
+    $('.subscribe-btns-block').css('display', 'flex');
+  }
+
+  function showSubscrButtons() {
+    $('.subscription-btns-block').css('display', 'flex');
+    $('.subscribe-btns-block').hide();
+
+    return false;
+  }
+
+  function hideSubscrButtons() {
+    $('.subscription-btns-block').hide();
+    $('.subscribe-btns-block').css('display', 'flex');
+  }
+
+  function showMobileShareButtons() {
+    $('.btn-share').toggleClass('btn-share--active');
+    $('.share-btns-block').toggleClass('share-btns-block--active');
+  }
+
+  function hideMobileShareButtons(event) {
+    const target = event.target;
+    const isButton = target.closest('.btn-share');
+    const isShareBlock = target.closest('.share-btns-block');
+
+    if (!isButton && !isShareBlock) {
+      $('.btn-share').removeClass('btn-share--active');
+      $('.share-btns-block').removeClass('share-btns-block--active');
+    }
+  }
+
+  function initMobileSlider(isMobile) {
+    if (!isMobile) return;
+    $('.game-images').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      dots: true,
+      dotsClass: 'game-images__dots',
+      initialSlide: 1,
+      mobileFirst: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: 'unslick',
+        }
+      ]
+    })
+  }
+
+
+  $('.open-search-btn').on('click', showSearchForm);
+
+  $(document).on('click', function (event) {
+    hideMobileShareButtons(event);
+    hideSearchForm(event);
+  });
+
+  function showSearchForm() {
+    $('.search-block').addClass('search-block--active');
+  }
+
+  function hideSearchForm(event) {
+    const isSearchBlock = event.target.closest('.search-block');
+    const isOpenButton = event.target.closest('.open-search-btn');
+
+    if (!isSearchBlock && !isOpenButton) {
+      $('.search-block').removeClass('search-block--active');
+    }
+  }
+
+
+  $('.game-images').on('click', hideItemsOnSlider);
+
+  function hideItemsOnSlider(event) {
+
+    if ($('.search-block').hasClass('search-block--active')) {
+      $('.search-block').removeClass('search-block--active');
+      return;
+    }
+
+    if ($('.btn-share').hasClass('btn-share--active')) {
+      $('.btn-share').removeClass('btn-share--active');
+      $('.share-btns-block').removeClass('share-btns-block--active');
+      return;
+    }
+
+    if (!event.target.closest('.game-images__dots')) {
+
+      $('.game-page header').toggleClass('hide-top');
+      $('.btn-save-game').toggleClass('hide-right');
+      $('.game-page .btn-share').toggleClass('hide-left');
+      $('.share-btns-block').toggleClass('hide-left');
+      $('.game-images__dots').toggleClass('game-images__dots--hide');
+      $('.game .game-info-main').toggleClass('game-info--move');
+
+      $('.game-images__item').toggleClass('game-images__item--bigger');
+    }
+  }
+
+  $('.game-info__details').on('click', function() {
+    $(this).toggleClass('game-info__details--show-text');
+  });
+
+  // END
+
+
+
   var $countdown = $('#countdown');
   if ($countdown.length) {
     $countdown.countdown($countdown.data('release_date'))
@@ -1226,19 +1375,19 @@ $(function () {
     leftSideTabsContent.slide($(this).data('index'));
   });
 
-  // function swiperInit() {
-  //   leftSideTabChange($('.left-side-mobile-tabs li.active'));
-  //   var index = $('.left-side-mobile-tabs li.active').data('index');
+  function swiperInit() {
+    leftSideTabChange($('.left-side-mobile-tabs li.active'));
+    var index = $('.left-side-mobile-tabs li.active').data('index');
 
-  //   setTimeout(function () {
+    setTimeout(function () {
 
-  //     var $element = $('.left-side-tabs-content-wrap > div:nth-child(' + (index + 1) + ')');
-  //     var rec = $element.get(0).getBoundingClientRect();
-  //     $element.parent().animate({ height: rec.height }, 100);
-  //   }, 10)
-  // }
+      var $element = $('.left-side-tabs-content-wrap > div:nth-child(' + (index + 1) + ')');
+      var rec = $element.get(0).getBoundingClientRect();
+      $element.parent().animate({ height: rec.height }, 100);
+    }, 10)
+  }
 
-  // swiperInit();
+  swiperInit();
 
   function leftSideTabChange($this) {
     $this.siblings().removeClass('active');
@@ -1256,8 +1405,8 @@ $(function () {
 
     var $list = $this.parent();
 
-    // var itemRec = $this.get(0).getBoundingClientRect();
-    // var listRec = $list.get(0).getBoundingClientRect();
+    var itemRec = $this.get(0).getBoundingClientRect();
+    var listRec = $list.get(0).getBoundingClientRect();
 
     var newX = listRec.width / 2 - itemRec.width / 2 - (itemRec.left - listRec.left);
 
@@ -1268,76 +1417,8 @@ $(function () {
     $(this).parents('.price-block').addClass('clicked');
   });
 
-  function showHideButtons(isMobile) {
-    if (!isMobile) {
+});
 
-      $('#show_share_btns').on('click', showShareButtons);
-      $('#hide_share_btns').on('click', hideShareButtons);
-      $('#show_subscription_btns').on('click', showSubscrButtons);
-      $('#hide_subscription_btns').on('click', hideSubscrButtons);
-
-      $('#show_share_btns').off('click', showMobileShareButtons);
-
-    } else {
-
-      $('#show_share_btns').off('click', showShareButtons);
-      $('#hide_share_btns').off('click', hideShareButtons);
-      $('#show_subscription_btns').off('click', showSubscrButtons);
-      $('#hide_subscription_btns').off('click', hideSubscrButtons);
-
-      $('#show_share_btns').on('click', showMobileShareButtons);
-
-      $('#show_subscription_btns').on('click', function () {
-        $('.subscription-btns-block').css('display', 'flex');
-        $('#show_subscription_btns').hide();
-
-        return false;
-      })
-
-      $('#hide_subscription_btns').on('click', function () {
-        $('.subscription-btns-block').hide();
-        $('#show_subscription_btns').css('display', 'flex');
-      })
-    }
-  }
-
-  function showShareButtons() {
-    $('.share-btns-block').css('display', 'flex');
-    $('.subscribe-btns-block').hide();
-  }
-
-  function hideShareButtons() {
-    $('.share-btns-block').hide();
-    $('.subscribe-btns-block').css('display', 'flex');
-  }
-
-  function showSubscrButtons() {
-    $('.subscription-btns-block').css('display', 'flex');
-    $('.subscribe-btns-block').hide();
-
-    return false;
-  }
-
-  function hideSubscrButtons() {
-    $('.subscription-btns-block').hide();
-    $('.subscribe-btns-block').css('display', 'flex');
-  }
-
-  function showMobileShareButtons() {
-    $('.btn-share').toggleClass('btn-share--active');
-    $('.share-btns-block').toggleClass('share-btns-block--active');
-  }
-
-  function hideMobileShareButtons(event) {
-    const target = event.target;
-    const isButton = target.closest('.btn-share');
-    const isShareBlock = target.closest('.share-btns-block');
-
-    if (!isButton && !isShareBlock) {
-      $('.btn-share').removeClass('btn-share--active');
-      $('.share-btns-block').removeClass('share-btns-block--active');
-    }
-  }
 
   // function initMobileSlider(isMobile) {
   //     if (!isMobile) {
@@ -1376,74 +1457,3 @@ $(function () {
 
   // $('.mobile-slide-controls .control-left').on('click', mobileSlideLeft);
   // $('.mobile-slide-controls .control-right').on('click', mobileSlideRight);
-
-  function initMobileSlider(isMobile) {
-    if (!isMobile) return;
-    $('.game-images').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      dots: true,
-      dotsClass: 'game-images__dots',
-      initialSlide: 1,
-      mobileFirst: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: 'unslick',
-        }
-      ]
-    })
-  }
-
-
-  $('.open-search-btn').on('click', showSearchForm);
-
-  $(document).on('click', function(event) {
-    hideMobileShareButtons(event);
-    hideSearchForm(event);
-  });
-
-  function showSearchForm() {
-    $('.search-block').addClass('search-block--active');
-  }
-
-  function hideSearchForm(event) {
-    const isSearchBlock = event.target.closest('.search-block');
-    const isOpenButton = event.target.closest('.open-search-btn');
-
-    if (!isSearchBlock && !isOpenButton) {
-      $('.search-block').removeClass('search-block--active');
-    }
-  }
-
-
-  $('.game-images').on('click', hideItemsOnSlider);
-
-  function hideItemsOnSlider(event) {
-
-    if ($('.search-block').hasClass('search-block--active')) {
-      $('.search-block').removeClass('search-block--active');
-      return;
-    }
-
-    if ($('.btn-share').hasClass('btn-share--active')) {
-      $('.btn-share').removeClass('btn-share--active');
-      $('.share-btns-block').removeClass('share-btns-block--active');
-      return;
-    }
-
-    if (!event.target.closest('.game-images__dots')) {
-
-      $('.game-page header').toggleClass('hide-top');
-      $('.btn-save-game').toggleClass('hide-right');
-      $('.game-page .btn-share').toggleClass('hide-left');
-      $('.share-btns-block').toggleClass('hide-left');
-      $('.game-images__dots').toggleClass('game-images__dots--hide');
-      $('.game .game-info').toggleClass('game-info--move');
-
-      $('.game-images__item').toggleClass('game-images__item--bigger');
-    }
-  }
-
-});
