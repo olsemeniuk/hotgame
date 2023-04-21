@@ -5545,93 +5545,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   /* new styles */
-  .game-page header .btn-menu {
-    position: static;
-    width: 25px;
-    height: 25px;
-    filter: drop-shadow(0 0 1px #000000);
-  }
-
-  /* new styles */
-  .game-page .btn-share,
-  .game-page .btn-save-game {
-    position: absolute;
-    top: 325px;
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    background-image: none;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .game-page .btn-share::after,
-  .game-page .btn-save-game::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: translate(-50%, -50%);
-  }
-
-  .game-page .btn-share::after {
-    width: 20px;
-    height: 20px;
-    background-image: url("../svg/icon/share.svg");
-  }
-
-  .game-page .btn-save-game::after {
-    left: 54%;
-    width: 25px;
-    height: 25px;
-    background-image: url("../svg/icon/save-game.svg");
-  }
-
-  .game-page .btn-share {
-    left: 10px;
-  }
-
-  .game-page .game .btn-save-game {
-    right: 10px;
-    font-size: 0;
-    background-position: 57% 50%;
-    background-size: 80%;
-    filter: none;
-  }
-
-  .btn-save-game.active::after {
-    filter: url(#active)
-  }
-
-  .game .game-info {
-    position: relative;
-    margin-top: -30px;
-    padding-top: 25px;
-    background-color: #ffffff;
-    border-radius: 20px 20px 0 0;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s;
-  }
-
-  .game .game-info--move {
-    transform: translateY(15px);
-  }
-
-  .game-title span:not(.red) {
-    display: block;
-    font-size: 16px;
-    text-align: center;
-    color: #000000;
-  }
-
-  /* new styles */
   .game-page .btn-icon-new.btn-share:hover,
   .btn-icon-new.btn-save-game:not(.active):hover {
     filter: none;
@@ -6258,9 +6171,94 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   /* new styles */
+  /* new styles */
+  .game-page header .btn-menu {
+    position: static;
+    width: 25px;
+    height: 25px;
+    filter: drop-shadow(0 0 1px #000000);
+  }
+
+  /* new styles */
+  .game-page .btn-share,
+  .game-page .btn-save-game {
+    position: absolute;
+    top: 325px;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    background-image: none;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .game-page .btn-share::after,
+  .game-page .btn-save-game::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+  }
+
+  .game-page .btn-share::after {
+    width: 20px;
+    height: 20px;
+    background-image: url("../svg/icon/share.svg");
+  }
+
+  .game-page .btn-save-game::after {
+    left: 54%;
+    width: 25px;
+    height: 25px;
+    background-image: url("../svg/icon/save-game.svg");
+  }
+
   .game-page .btn-share {
+    left: 10px;
     z-index: 2;
     transition: all 0.3s;
+  }
+
+  .game-page .game .btn-save-game {
+    right: 10px;
+    font-size: 0;
+    background-position: 57% 50%;
+    background-size: 80%;
+    filter: none;
+  }
+
+  .btn-save-game.active::after {
+    filter: url(#active)
+  }
+
+  .game .game-info {
+    position: relative;
+    margin-top: -30px;
+    padding-top: 25px;
+    background-color: #ffffff;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s;
+  }
+
+  .game .game-info--move {
+    transform: translateY(15px);
+  }
+
+  .game-title span:not(.red) {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
   }
 
   .game-page .btn-share--active {
@@ -6307,6 +6305,30 @@ a:hover>.btn-extension-header.opera-addons-icon {
     padding: 4px 10px 5px 35px;
     background-color: #fff;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .game .game-info-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .game-info__list {
+    line-height: 0;
+  }
+
+  .game-info__list.game-mods {
+    margin-right: 8px;
+    padding-right: 10px;
+    border-right: 1px solid #F0F0F0;
+  }
+
+  .game-info__list .game-info__item.network-icon {
+    display: inline-block;
+  }
+
+  .game .game-title .game-platforms-desktop {
+    display: none;
   }
 }
 
