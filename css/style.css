@@ -130,6 +130,7 @@ textarea {
 }
 
 @media (min-width: 769px) {
+
   .mobile-only,
   .open-search-btn {
     display: none;
@@ -5446,22 +5447,22 @@ a:hover>.btn-extension-header.opera-addons-icon {
     margin-bottom: 0;
     border-radius: 20px;
     transform: scale(0);
-    transition: transform 0.3s 1.4s, 
-                right 0.3s 1.2s,
-                width 0.7s 0.4s, 
-                border-radius 0.3s;
+    transition: transform 0.3s 1.4s,
+      right 0.3s 1.2s,
+      width 0.7s 0.4s,
+      border-radius 0.3s;
   }
-  
+
   .game-page .search-block--active {
     right: 0;
     width: 100%;
     height: 40px;
     border-radius: 0 0 15px 15px;
     transform: scale(1);
-    transition: transform 0.3s, 
-                width 0.7s 0.7s, 
-                right 0.3s 0.5s,
-                border-radius 0.3s 1.4s;
+    transition: transform 0.3s,
+      width 0.7s 0.7s,
+      right 0.3s 0.5s,
+      border-radius 0.3s 1.4s;
   }
 
   .game-page .search-form {
@@ -5469,7 +5470,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     border-radius: 0 0 15px 15px;
   }
 
-  .game-page .search-form > input[type="submit"] {
+  .game-page .search-form>input[type="submit"] {
     width: 40px;
     height: 100%;
     margin: 0;
@@ -5478,7 +5479,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     cursor: pointer;
   }
 
-  .game-page .search-form > .search-input {
+  .game-page .search-form>.search-input {
     box-sizing: border-box;
     width: 0;
     height: 100%;
@@ -5550,7 +5551,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: 25px;
     filter: drop-shadow(0 0 1px #000000);
   }
-/* new styles */
+
+  /* new styles */
   .game-page .btn-share,
   .game-page .btn-save-game {
     position: absolute;
@@ -5596,7 +5598,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     left: 10px;
   }
 
-  .game-page .game .btn-save-game{
+  .game-page .game .btn-save-game {
     right: 10px;
     font-size: 0;
     background-position: 57% 50%;
@@ -5628,7 +5630,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     text-align: center;
     color: #000000;
   }
-/* new styles */
+
+  /* new styles */
   .game-page .btn-icon-new.btn-share:hover,
   .btn-icon-new.btn-save-game:not(.active):hover {
     filter: none;
@@ -5733,7 +5736,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     line-height: 0;
   }
 
-  .game-images .slick-current .game-images__item{
+  .game-images .slick-current .game-images__item {
     position: relative;
     z-index: 999;
   }
@@ -5750,7 +5753,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     transition: all 0.3s;
   }
 
-  .game-images__item--bigger:not(.game-images__video)  img {
+  .game-images__item--bigger:not(.game-images__video) img {
     transform: scale(1.1);
   }
 
@@ -6253,6 +6256,58 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .subscribe-block {
     width: calc(100% - 6px);
   }
+
+  /* new styles */
+  .game-page .btn-share {
+    z-index: 2;
+    transition: all 0.3s;
+  }
+
+  .game-page .btn-share--active {
+    box-shadow: none;
+  }
+
+  .game-page .btn-share--active::after {
+    filter: url(#active);
+  }
+
+  .game-page .btn-share--active::before {
+    content: ":";
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 19px;
+    color: #bb280f;
+  }
+
+  .game .share-btns-block {
+    position: absolute;
+    top: 325px;
+    left: 10px;
+    display: flex !important;
+    width: 30px;
+    overflow: hidden;
+    padding: 4px 0 5px;
+    border-radius: 15px;
+    transition: all 0.3s;
+  }
+
+  #hide_share_btns {
+    display: none;
+  }
+
+  .game #share_links span {
+    flex-shrink: 0;
+    margin: 0 2px;
+    transition: all 0.3s;
+  }
+
+  .game .share-btns-block--active {
+    width: auto;
+    padding: 4px 10px 5px 35px;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  }
 }
 
 @media (max-width: 480px) {
@@ -6262,7 +6317,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: 270px;
   }
 
-  .game-page .hg-block .youtube-player{
+  .game-page .hg-block .youtube-player {
     height: 220px;
   }
 
@@ -6275,8 +6330,9 @@ a:hover>.btn-extension-header.opera-addons-icon {
     width: auto;
   }
 
-  .game-page .btn-share, 
-  .btn-save-game {
+  .game-page .btn-share,
+  .game-page .btn-save-game,
+  .game .share-btns-block {
     top: 200px;
   }
 

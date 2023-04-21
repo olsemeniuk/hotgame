@@ -1172,6 +1172,7 @@ $(function () {
     toggleGameSlides(isMobile);
 
     initMobileSlider(isMobile);
+    showHideButtons(isMobile);
   }
 
   $(window).on('resize', resize);
@@ -1248,7 +1249,7 @@ $(function () {
         if ($(this).attr('data-src')) {
           $(this).attr('src', $(this).attr('data-src'));
           $(this).removeAttr('data-src');
-          initMobileSlider(true);
+          // initMobileSlider(true);
         }
       });
     }
@@ -1263,31 +1264,80 @@ $(function () {
     $list.css('transform', 'translateX(' + newX + 'px)');
   }
 
-  $('#show_share_btns').on('click', function () {
+  $(document).on('click', '.price-list-item a', function () {
+    $(this).parents('.price-block').addClass('clicked');
+  });
+
+  function showHideButtons(isMobile) {
+    if (!isMobile) {
+
+      $('#show_share_btns').on('click', showShareButtons);
+      $('#hide_share_btns').on('click', hideShareButtons);
+      $('#show_subscription_btns').on('click', showSubscrButtons);
+      $('#hide_subscription_btns').on('click', hideSubscrButtons);
+
+      $('#show_share_btns').off('click', showMobileShareButtons);
+
+    } else {
+
+      $('#show_share_btns').off('click', showShareButtons);
+      $('#hide_share_btns').off('click', hideShareButtons);
+      $('#show_subscription_btns').off('click', showSubscrButtons);
+      $('#hide_subscription_btns').off('click', hideSubscrButtons);
+
+      $('#show_share_btns').on('click', showMobileShareButtons);
+
+      $('#show_subscription_btns').on('click', function () {
+        $('.subscription-btns-block').css('display', 'flex');
+        $('#show_subscription_btns').hide();
+
+        return false;
+      })
+
+      $('#hide_subscription_btns').on('click', function () {
+        $('.subscription-btns-block').hide();
+        $('#show_subscription_btns').css('display', 'flex');
+      })
+    }
+  }
+
+  function showShareButtons() {
     $('.share-btns-block').css('display', 'flex');
     $('.subscribe-btns-block').hide();
-  });
+  }
 
-  $('#hide_share_btns').on('click', function () {
+  function hideShareButtons() {
     $('.share-btns-block').hide();
     $('.subscribe-btns-block').css('display', 'flex');
-  });
+  }
 
-  $('#show_subscription_btns').on('click', function () {
+  function showSubscrButtons() {
     $('.subscription-btns-block').css('display', 'flex');
     $('.subscribe-btns-block').hide();
 
     return false;
-  });
+  }
 
-  $('#hide_subscription_btns').on('click', function () {
+  function hideSubscrButtons() {
     $('.subscription-btns-block').hide();
     $('.subscribe-btns-block').css('display', 'flex');
-  });
+  }
 
-  $(document).on('click', '.price-list-item a', function () {
-    $(this).parents('.price-block').addClass('clicked');
-  });
+  function showMobileShareButtons() {
+    $('.btn-share').toggleClass('btn-share--active');
+    $('.share-btns-block').toggleClass('share-btns-block--active');
+  }
+
+  function hideMobileShareButtons(event) {
+    const target = event.target;
+    const isButton = target.closest('.btn-share');
+    const isShareBlock = target.closest('.share-btns-block');
+
+    if (!isButton && !isShareBlock) {
+      $('.btn-share').removeClass('btn-share--active');
+      $('.share-btns-block').removeClass('share-btns-block--active');
+    }
+  }
 
   // function initMobileSlider(isMobile) {
   //     if (!isMobile) {
@@ -1329,7 +1379,6 @@ $(function () {
 
   function initMobileSlider(isMobile) {
     if (!isMobile) return;
-
     $('.game-images').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -1347,8 +1396,13 @@ $(function () {
     })
   }
 
+
   $('.open-search-btn').on('click', showSearchForm);
-  $(document).on('click', hideSearchForm);
+
+  $(document).on('click', function(event) {
+    hideMobileShareButtons(event);
+    hideSearchForm(event);
+  });
 
   function showSearchForm() {
     $('.search-block').addClass('search-block--active');
@@ -1372,11 +1426,19 @@ $(function () {
       $('.search-block').removeClass('search-block--active');
       return;
     }
+
+    if ($('.btn-share').hasClass('btn-share--active')) {
+      $('.btn-share').removeClass('btn-share--active');
+      $('.share-btns-block').removeClass('share-btns-block--active');
+      return;
+    }
+
     if (!event.target.closest('.game-images__dots')) {
 
       $('.game-page header').toggleClass('hide-top');
       $('.btn-save-game').toggleClass('hide-right');
       $('.game-page .btn-share').toggleClass('hide-left');
+      $('.share-btns-block').toggleClass('hide-left');
       $('.game-images__dots').toggleClass('game-images__dots--hide');
       $('.game .game-info').toggleClass('game-info--move');
 
