@@ -143,6 +143,14 @@ $(function () {
     $(this).toggleClass('game-info__details--show-text');
   });
 
+  $('#prices_chart').slideUp(1);
+
+  $('.price-chart-btn-wrap').on('click', function(event) {
+    event.preventDefault();
+    $('#prices_chart').slideToggle();
+    $('.price-chart-btn-wrap').toggleClass('price-chart-btn-wrap--open');
+  })
+
   // END
 
 

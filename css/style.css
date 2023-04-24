@@ -5343,6 +5343,43 @@ a:hover>.btn-extension-header.opera-addons-icon {
 }
 
 
+/* my styles */
+
+.game-prices-block {
+  position: relative;
+  z-index: 2;
+}
+
+.game .price-chart-wrapper {
+  z-index: 1;
+  order: -3;
+  margin-top: -40px;
+  padding: 30px 0 5px;
+}
+
+#prices_chart {
+  margin-top: 20px;
+}
+
+.price-chart-btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-chart-btn-wrap .btn-price-chart {
+  vertical-align: middle;
+}
+
+.price-chart-btn-wrap .btn-arrow-down {
+  transition: all 0.4s;
+}
+
+.price-chart-btn-wrap--open .btn-arrow-down {
+  transform: scaleY(-1);
+}
+
+
 @media (max-width: 1455px) {
   .hint.show-subscribe {
     bottom: -130px;
@@ -6245,13 +6282,13 @@ a:hover>.btn-extension-header.opera-addons-icon {
     margin-top: -30px;
     padding-top: 25px;
     background-color: #ffffff;
-    border-radius: 20px 20px 0 0;
+    border-radius: 15px 15px 0 0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     transition: all 0.3s;
   }
 
   .game .game-info--move {
-    transform: translateY(15px);
+    margin-top: -15px;
   }
 
   .game-info-main>.game-title span:not(.game-platforms-desktop) {
@@ -6473,8 +6510,9 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .game .hg-block.game-rating-block {
     padding: 0 30px 15px;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 15px 15px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s;
   }
 
   .hg-block.short-game-description {
@@ -6492,17 +6530,20 @@ a:hover>.btn-extension-header.opera-addons-icon {
     aspect-ratio: 1 / 1;
   }
 
-  /* temporary */
-  .game .show-subscribe-block {
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
+  /* price chart */
 
-  #show_subscription_btns {
-    display: none !important;
-  }
-  /* end temporary */
+/* temporary */
+.game .show-subscribe-block {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#show_subscription_btns {
+  display: none !important;
+}
+
+/* end temporary */
 
 
 }
