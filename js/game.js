@@ -111,7 +111,6 @@ $(function () {
     }
   }
 
-
   $('.game-images').on('click', hideItemsOnSlider);
 
   function hideItemsOnSlider(event) {
