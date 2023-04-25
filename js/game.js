@@ -18,18 +18,6 @@ $(function () {
       $('#hide_subscription_btns').off('click', hideSubscrButtons);
 
       $('#show_share_btns').on('click', showMobileShareButtons);
-
-      $('#show_subscription_btns').on('click', function () {
-        $('.subscription-btns-block').css('display', 'flex');
-        $('#show_subscription_btns').hide();
-
-        return false;
-      })
-
-      $('#hide_subscription_btns').on('click', function () {
-        $('.subscription-btns-block').hide();
-        $('#show_subscription_btns').css('display', 'flex');
-      })
     }
   }
 
@@ -71,44 +59,45 @@ $(function () {
     }
   }
 
-  function initMobileSlider(isMobile) {
-    if (!isMobile) return;
-    $('.game-images').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      dots: true,
-      dotsClass: 'game-images__dots',
-      initialSlide: 1,
-      mobileFirst: true,
-      dragging: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: 'unslick',
-        }
-      ]
-    });
+  $('#show_subscription_btns_mobile').on('click', function(event) {
+    event.preventDefault();
 
-    let infoSlider = $('.left-side-tabs-content-wrap').slick({
-      arrows: false,
-      adaptiveHeight: true,
-      asNavFor: '#lieft_side_tabs',
-    });
+    $('.subscription-btns-block.mobile-only').addClass('subscription-btns-block--active');
+    $('#show_subscription_btns_mobile').hide();
+  })
 
-    $('#lieft_side_tabs').slick({
-      arrows: false,
-      centerMode: true,
-      variableWidth: true,
-      focusOnSelect: true,
-      infinite: false,
-      asNavFor: '.left-side-tabs-content-wrap',
-    })
+  $('#hide_subscription_btns_mobile').on('click', function() {
+    $('.subscription-btns-block.mobile-only').removeClass('subscription-btns-block--active');
+    $('#show_subscription_btns_mobile').show();
+  })
 
-    $('.game-info__details').on('click', function() {
-      infoSlider.slick('setPosition');
-    })
-  }
+  $('.game-images').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: true,
+    dotsClass: 'game-images__dots',
+    initialSlide: 1,
+  });
+
+  let infoSlider = $('.left-side-tabs-content-wrap').slick({
+    arrows: false,
+    adaptiveHeight: true,
+    asNavFor: '#lieft_side_tabs',
+  });
+
+  $('#lieft_side_tabs').slick({
+    arrows: false,
+    centerMode: true,
+    variableWidth: true,
+    focusOnSelect: true,
+    infinite: false,
+    asNavFor: '.left-side-tabs-content-wrap',
+  });
+
+  $('.left-side-tabs-content-wrap').on('click', function () {
+    infoSlider.slick('setPosition');
+  });
 
 
   $('.open-search-btn').on('click', showSearchForm);
@@ -1389,8 +1378,6 @@ $(function () {
 
     toggleDescriptionImages(isMobile);
     toggleGameSlides(isMobile);
-
-    initMobileSlider(isMobile);
     showHideButtons(isMobile);
   }
 

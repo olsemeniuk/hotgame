@@ -1221,7 +1221,12 @@
       <aside class="yui3-cssreset left-side">
 
         <div class="hg-block short-game-description" style="order: -5;">
-          <div class="game-images">
+          <img class="desktop-only" alt="Hogwarts Legacy постер (cover)" title="Hogwarts Legacy постер (cover)"
+            src="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg" width="267"
+            height="375"
+            srcset="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg 281w, https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster2.jpeg 563w"
+            sizes="(max-width: 281px) 100vw, 281px" itemprop="image" class="poster">
+          <div class="game-images mobile-only">
             <div class="game-images__item">
               <img alt="Hogwarts Legacy постер (cover)" title="Hogwarts Legacy постер (cover)"
                 src="https://hot-game.info/uploads/media/game/0002/07/thumb_106378_game_poster.jpeg" width="267"
@@ -1561,15 +1566,17 @@
         <div class="hg-block game-rating-block" style="order: -4;">
           <div class="show-subscribe-block">
             <div class="subscribe-btns-block">
-              <div class="share-btns-wrap"> <a href="#subscribe" id="show_subscription_btns"
-                  class="btn-icon-new btn-subs static " data-hint="subscribe">Подписаться</a> <a href="#save"
-                  id="save_game" class="btn-icon-new btn-save-game static " data-action="/user/save-game"
+              <div class="share-btns-wrap">
+                <a href="#subscribe" id="show_subscription_btns" class="btn-icon-new btn-subs static desktop-only"
+                  data-hint="subscribe">Подписаться</a>
+                <a href="#save" id="save_game" class="btn-icon-new btn-save-game static " data-action="/user/save-game"
                   data-game="Hogwarts-Legacy" data-title="Удалить с избранного" title="Добавить в избранное">В
-                  избранное</a></div>
+                  избранное</a>
+              </div>
               <span id="show_share_btns" class="btn-icon-new btn-share"></span>
             </div>
 
-            <div class="subscription-btns-block">
+            <div class="subscription-btns-block desktop-only">
               <div class="subscription-btns-wrap">
                 <span rel="nofollow" class="platform-icon subscribe-user platform-icon-windows " title="Windows"
                   data-game="Hogwarts-Legacy" data-platform="windows" data-action="/subscribe"></span>
@@ -2011,7 +2018,6 @@
                     title="Физическая версия (показать/скрыть)"></a>
                 </div>
               </div>
-
               <div class="price-filters-right">
                 <div class="price-platform-block"><a rel="nofollow"
                     href="https://hot-game.info/game/Hogwarts-Legacy#platform=windows"
@@ -2027,6 +2033,29 @@
                     href="https://hot-game.info/game/Hogwarts-Legacy#platform=xbox_sx"
                     class="platform-buy platform-icon platform-icon-xbox_sx" title="Xbox SX"
                     data-platform="xbox_sx"></a></div>
+              </div>
+            </div>
+
+            <div class="subscription-block">
+              <a href="#subscribe" id="show_subscription_btns_mobile" class="btn-icon-new btn-subs mobile-only"
+                data-hint="subscribe">Оповещения о снижении цены</a>
+              <div class="subscription-btns-block mobile-only">
+                <div class="subscription-btns-wrap">
+                  <span rel="nofollow" class="platform-icon subscribe-user platform-icon-windows " title="Windows"
+                    data-game="Hogwarts-Legacy" data-platform="windows" data-action="/subscribe"></span>
+                  <span rel="nofollow" class="platform-icon subscribe-user platform-icon-ps_4 " title="PS 4"
+                    data-game="Hogwarts-Legacy" data-platform="ps_4" data-action="/subscribe"></span>
+                  <span rel="nofollow" class="platform-icon subscribe-user platform-icon-ps_5 " title="PS 5"
+                    data-game="Hogwarts-Legacy" data-platform="ps_5" data-action="/subscribe"></span>
+                  <span rel="nofollow" class="platform-icon subscribe-user platform-icon-xbox_one " title="Xbox One"
+                    data-game="Hogwarts-Legacy" data-platform="xbox_one" data-action="/subscribe"></span>
+                  <span rel="nofollow" class="platform-icon subscribe-user platform-icon-xbox_sx " title="Xbox SX"
+                    data-game="Hogwarts-Legacy" data-platform="xbox_sx" data-action="/subscribe"></span>
+                  <span rel="nofollow" class="platform-icon subscribe-user platform-icon-nintendo_switch "
+                    title="Nintendo Switch" data-game="Hogwarts-Legacy" data-platform="nintendo_switch"
+                    data-action="/subscribe"></span>
+                </div>
+                <span id="hide_subscription_btns_mobile" class="btn-icon-new btn-arrow-right static"></span>
               </div>
             </div>
 

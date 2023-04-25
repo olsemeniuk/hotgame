@@ -6539,19 +6539,36 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: auto;
     aspect-ratio: 1 / 1;
   }
-/* temporary */
-.game .show-subscribe-block {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
 
-#show_subscription_btns {
-  display: none !important;
-}
+  .desktop-only {
+    display: none;
+  }
 
-/* end temporary */
+  .game .subscription-block {
+    position: relative;
+    padding-top: 3px;
+  }
 
+  .subscription-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid #F0F0F0;
+  }
+
+  #show_subscription_btns_mobile {
+    width: auto;
+    padding-left: 28px;
+    font-size: 14px;
+    line-height: 20px;
+    filter: url('#active')
+  }
+
+  .game .subscription-btns-block--active {
+    display: flex;
+  }
 
 }
 
