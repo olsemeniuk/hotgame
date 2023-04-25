@@ -6047,17 +6047,27 @@ a:hover>.btn-extension-header.opera-addons-icon {
     transition: transform 0.3s;
   }
 
-  .left-side-mobile-tabs>li {
+  .left-side-mobile-tabs li {
     white-space: nowrap;
-    margin: 10px 10px 0;
+    /* убрал марджины по бокам */
+    margin: 10px 0 0;
     padding-bottom: 5px;
     color: #A6A7A6;
     font-size: 14px;
+    /* new styles */
+    box-sizing: border-box;
+    text-align: center;
+    border-bottom: 2px solid transparent;
   }
 
-  .left-side-mobile-tabs>li.active {
+  .left-side-mobile-tabs .slick-slide {
+    margin: 0 10px 0;
+  }
+
+  .left-side-mobile-tabs>li.active,
+  .left-side-mobile-tabs .slick-current li{
     color: #bb280f;
-    border-bottom: 2px solid #bb280f;
+    border-bottom-color: #bb280f;
     font-weight: bold;
   }
 
@@ -6529,9 +6539,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: auto;
     aspect-ratio: 1 / 1;
   }
-
-  /* price chart */
-
 /* temporary */
 .game .show-subscribe-block {
   margin: 0;
