@@ -139,16 +139,59 @@ $(function () {
     }
   }
 
-  $('.game-info__details').on('click', function() {
+  $('.game-info__details').on('click', function () {
     $(this).toggleClass('game-info__details--show-text');
   });
 
-  $('#prices_chart').slideUp(1);
 
-  $('.price-chart-btn-wrap').on('click', function(event) {
+  if (document.location.hash.includes('prices_chart')) {
+    $('#prices_chart').slideDown(1);
+    $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
+
+    $(window).on('load', scrollToPriceChart);
+
+  } else {
+    $('#prices_chart').slideUp(1);
+    $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
+  }
+
+  function scrollToPriceChart() {
+    $("#prices_chart")[0].scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+
+  $('.price-chart-btn-wrap').on('click', showHidePriceChart);
+
+  function showHidePriceChart(event) {
     event.preventDefault();
+
     $('#prices_chart').slideToggle();
     $('.price-chart-btn-wrap').toggleClass('price-chart-btn-wrap--open');
+
+    addChartHash();
+  }
+
+  function addChartHash() {
+    if (document.location.hash.includes('prices_chart')) {
+      history.pushState(null, null, window.location.pathname);
+    } else {
+      history.pushState(null, null, '#prices_chart');
+    }
+  }
+
+  $('.description-top-btns > .btn-price-chart').on('click', function(event) {
+    event.preventDefault();
+
+    $('#prices_chart').slideDown();
+    $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
+
+    if (!(document.location.hash.includes('prices_chart'))) {
+      history.pushState(null, null, '#prices_chart');
+    }
+    
+    scrollToPriceChart();
   })
 
   // END
