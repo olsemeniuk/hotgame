@@ -8,7 +8,7 @@ $(function () {
       $('#show_subscription_btns').on('click', showSubscrButtons);
       $('#hide_subscription_btns').on('click', hideSubscrButtons);
 
-      $('#show_share_btns').off('click', showMobileShareButtons);
+      $('#show_share_btns').off('click', showHideMobileShareButtons);
 
     } else {
 
@@ -17,7 +17,7 @@ $(function () {
       $('#show_subscription_btns').off('click', showSubscrButtons);
       $('#hide_subscription_btns').off('click', hideSubscrButtons);
 
-      $('#show_share_btns').on('click', showMobileShareButtons);
+      $('#show_share_btns').on('click', showHideMobileShareButtons);
     }
   }
 
@@ -43,7 +43,7 @@ $(function () {
     $('.subscribe-btns-block').css('display', 'flex');
   }
 
-  function showMobileShareButtons() {
+  function showHideMobileShareButtons() {
     $('.btn-share').toggleClass('btn-share--active');
     $('.share-btns-block').toggleClass('share-btns-block--active');
   }
@@ -59,14 +59,14 @@ $(function () {
     }
   }
 
-  $('#show_subscription_btns_mobile').on('click', function(event) {
+  $('#show_subscription_btns_mobile').on('click', function (event) {
     event.preventDefault();
 
     $('.subscription-btns-block.mobile-only').addClass('subscription-btns-block--active');
     $('#show_subscription_btns_mobile').hide();
   })
 
-  $('#hide_subscription_btns_mobile').on('click', function() {
+  $('#hide_subscription_btns_mobile').on('click', function () {
     $('.subscription-btns-block.mobile-only').removeClass('subscription-btns-block--active');
     $('#show_subscription_btns_mobile').show();
   })
@@ -78,6 +78,7 @@ $(function () {
     dots: true,
     dotsClass: 'game-images__dots',
     initialSlide: 1,
+    infinite: false,
   });
 
   let infoSlider = $('.left-side-tabs-content-wrap').slick({
@@ -125,28 +126,51 @@ $(function () {
   function hideItemsOnSlider(event) {
 
     if ($('.search-block').hasClass('search-block--active')) {
+      event.preventDefault();
       $('.search-block').removeClass('search-block--active');
       return;
     }
 
     if ($('.btn-share').hasClass('btn-share--active')) {
+      event.preventDefault();
       $('.btn-share').removeClass('btn-share--active');
       $('.share-btns-block').removeClass('share-btns-block--active');
       return;
     }
 
-    if (!event.target.closest('.game-images__dots')) {
+    const isSliderDot = event.target.closest('.game-images__dots');
+    const itemsInvisible = $('.game-page header').hasClass('hide-top');
 
-      $('.game-page header').toggleClass('hide-top');
-      $('.btn-save-game').toggleClass('hide-right');
-      $('.game-page .btn-share').toggleClass('hide-left');
-      $('.share-btns-block').toggleClass('hide-left');
-      $('.game-images__dots').toggleClass('game-images__dots--hide');
-      $('.game .game-info-main').toggleClass('game-info--move');
+    if (!isSliderDot && !itemsInvisible) {
+      event.preventDefault();
 
-      $('.game-images__item').toggleClass('game-images__item--bigger');
+      $('.game-page header').addClass('hide-top');
+      $('.btn-save-game').addClass('hide-right');
+      $('.game-page .btn-share').addClass('hide-left');
+      $('.share-btns-block').addClass('hide-left');
+      $('.game-images__dots').addClass('game-images__dots--hide');
+      $('.game .game-info-main').addClass('game-info--move');
+      $('.game-images__item').addClass('game-images__item--bigger');
+    }
+
+    if (itemsInvisible) {
+      Fancybox.bind("[data-fancybox]", {});
     }
   }
+
+  $(document).on('click', function(event) {
+    const isSlider = event.target.closest('.game-images');
+
+    if (!isSlider) {
+      $('.game-page header').removeClass('hide-top');
+      $('.btn-save-game').removeClass('hide-right');
+      $('.game-page .btn-share').removeClass('hide-left');
+      $('.share-btns-block').removeClass('hide-left');
+      $('.game-images__dots').removeClass('game-images__dots--hide');
+      $('.game .game-info-main').removeClass('game-info--move');
+      $('.game-images__item').removeClass('game-images__item--bigger');
+    }
+  })
 
   $('.game-info__details').on('click', function () {
     $(this).toggleClass('game-info__details--show-text');

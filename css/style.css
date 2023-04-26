@@ -2677,7 +2677,7 @@ a.light-gray:hover {
   -webkit-filter: brightness(75%);
 }
 
-.hg-block .youtube-player .play {
+.hg-block .play{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5692,7 +5692,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     z-index: 999;
   }
 
-  .game-images__item:not(.game-images__video) {
+  .game-images__item {
     background-color: #ffffff;
   }
 
@@ -5704,13 +5704,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     transition: all 0.3s;
   }
 
-  .game-images__item--bigger:not(.game-images__video) img {
+  .game-images__item--bigger img {
     transform: scale(1.1);
-  }
-
-  .game-images__video {
-    height: 395px;
-    background-color: #000000;
   }
 
   .game-page .hg-block .youtube-player {
@@ -6065,7 +6060,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .left-side-mobile-tabs>li.active,
-  .left-side-mobile-tabs .slick-current li{
+  .left-side-mobile-tabs .slick-current li {
     color: #bb280f;
     border-bottom-color: #bb280f;
     font-weight: bold;
@@ -6219,7 +6214,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   /* new styles */
-  /* new styles */
   .game-page header .btn-menu {
     position: static;
     width: 25px;
@@ -6227,7 +6221,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
     filter: drop-shadow(0 0 1px #000000);
   }
 
-  /* new styles */
   .game-page .btn-share,
   .game-page .btn-save-game {
     position: absolute;
@@ -6541,7 +6534,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .desktop-only {
-    display: none;
+    display: none !important;
   }
 
   .game .subscription-block {
@@ -6569,14 +6562,12 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game .subscription-btns-block--active {
     display: flex;
   }
-
 }
 
 @media (max-width: 480px) {
 
   /* new styles */
-  .game-images__item img,
-  .game-images__video {
+  .game-images__item img {
     height: 270px;
   }
 
