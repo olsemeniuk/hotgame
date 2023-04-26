@@ -132,7 +132,6 @@ textarea {
 @media (min-width: 769px) {
 
   .mobile-only,
-  .open-search-btn,
   .game-grade {
     display: none;
   }
@@ -2677,7 +2676,7 @@ a.light-gray:hover {
   -webkit-filter: brightness(75%);
 }
 
-.hg-block .play{
+.hg-block .play {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5342,8 +5341,19 @@ a:hover>.btn-extension-header.opera-addons-icon {
   line-height: initial;
 }
 
+.price-chart-btn-wrap .btn-price-chart {
+  vertical-align: middle;
+}
 
-/* my styles */
+.price-chart-btn-wrap .btn-arrow-down {
+  transition: all 0.4s;
+}
+
+.price-chart-btn-wrap--open .btn-arrow-down {
+  transform: scaleY(-1);
+}
+
+/* prices chart */
 
 .game-prices-block {
   position: relative;
@@ -5355,6 +5365,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   order: -3;
   margin-top: -40px;
   padding: 30px 0 5px;
+  transition: all 0.3s linear;
 }
 
 #prices_chart {
@@ -5367,16 +5378,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
   align-items: center;
 }
 
-.price-chart-btn-wrap .btn-price-chart {
-  vertical-align: middle;
-}
-
-.price-chart-btn-wrap .btn-arrow-down {
-  transition: all 0.4s;
-}
-
-.price-chart-btn-wrap--open .btn-arrow-down {
-  transform: scaleY(-1);
+.game-accordion-wrapper {
+  transition: all 0.3s linear;
 }
 
 
@@ -5418,15 +5421,31 @@ a:hover>.btn-extension-header.opera-addons-icon {
     width: calc(100% - 6px);
   }
 
+  header .btn-menu {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 11px;
+    width: 30px;
+    height: 30px;
+    margin: 10px 35px 0 0;
+    /* changed menu-icon */
+    background-image: url('../svg/icon/new-menu-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
   /* my styles */
   .game-page .container {
     width: 100%;
   }
 
-  /* my styles */
   .game .short-game-description {
     box-shadow: none;
   }
+
+  /* ===================== */
 
   header.container {
     background-color: #f00000;
@@ -5444,160 +5463,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
     padding: 0 14px;
     background-color: transparent;
     box-shadow: none;
-  }
-
-  /* my styles */
-  .game-page header {
-    transition: all 0.3s;
-  }
-
-  .game-page header .top-logo-wrap {
-    padding: 2px;
-    background-color: #bb280f;
-    border-radius: 0 0 10px 10px;
-  }
-
-  /* search field styles */
-  .open-search-btn {
-    margin-left: auto;
-    padding: 24px 15px;
-    font: inherit;
-    background-color: transparent;
-    background-image: url("../svg/icon/search.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    filter: url(#white) drop-shadow(0 0 1px #000000);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .game-page .search-block {
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    right: 10px;
-    z-index: 1000;
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    margin-bottom: 0;
-    border-radius: 20px;
-    transform: scale(0);
-    transition: transform 0.3s 1.4s,
-      right 0.3s 1.2s,
-      width 0.7s 0.4s,
-      border-radius 0.3s;
-  }
-
-  .game-page .search-block--active {
-    right: 0;
-    width: 100%;
-    height: 40px;
-    border-radius: 0 0 15px 15px;
-    transform: scale(1);
-    transition: transform 0.3s,
-      width 0.7s 0.7s,
-      right 0.3s 0.5s,
-      border-radius 0.3s 1.4s;
-  }
-
-  .game-page .search-form {
-    height: 100%;
-    border-radius: 0 0 15px 15px;
-  }
-
-  .game-page .search-form>input[type="submit"] {
-    width: 40px;
-    height: 100%;
-    margin: 0;
-    background-size: 80%;
-    background-position: 50% 55%;
-    cursor: pointer;
-  }
-
-  .game-page .search-form>.search-input {
-    box-sizing: border-box;
-    width: 0;
-    height: 100%;
-    margin-top: 0;
-    padding: 0;
-    transition: all 0.1s 1s;
-  }
-
-  .game-page .search-block--active .search-input {
-    width: calc(100% - 40px);
-    padding: 5px;
-  }
-
-  header .top-logo {
-    box-shadow: none;
-    width: 36px;
-    height: 36px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    background-image: url('../svg/icon/hot-game.svg');
-    background-color: transparent;
-    background-size: cover;
-    filter: url('#white');
-  }
-
-  header a.logo-text {
-    color: #fff;
-    margin: 19px 0 0 4px;
-    font-size: 16px;
-  }
-
-  /* new styles */
-  .game-page header .top-logo {
-    margin: 0;
-  }
-
-  .game-page header a.logo-text {
-    display: none;
-  }
-
-  .logo-text .logo-black {
-    display: none;
-  }
-
-  .logo-text .logo-white {
-    display: unset;
-    margin: -7px 0 0 0px;
-  }
-
-  header .btn-menu {
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: 11px;
-    width: 30px;
-    height: 30px;
-    margin: 10px 35px 0 0;
-    /* changed menu-icon */
-    background-image: url('../svg/icon/new-menu-icon.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-
-  /* new styles */
-  .game-page .btn-icon-new.btn-share:hover,
-  .btn-icon-new.btn-save-game:not(.active):hover {
-    filter: none;
-  }
-
-  .hide-top {
-    transform: translateY(-200%);
-  }
-
-  .hide-left {
-    transform: translateX(-200%);
-  }
-
-  .hide-right {
-    transform: translateX(200%);
   }
 
   header .btn-back {
@@ -5676,98 +5541,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   header .user-menu .user-menu-buttons>a .btn-icon-new {
     margin-right: 15px;
-  }
-
-  /* mobile slider */
-  .game-page {
-    overflow-x: hidden;
-  }
-
-  .game-images {
-    line-height: 0;
-  }
-
-  .game-images .slick-current .game-images__item {
-    position: relative;
-    z-index: 999;
-  }
-
-  .game-images__item {
-    background-color: #ffffff;
-  }
-
-  .game-images__item img {
-    width: 100%;
-    height: 395px;
-    object-fit: cover;
-    object-position: center;
-    transition: all 0.3s;
-  }
-
-  .game-images__item--bigger img {
-    transform: scale(1.1);
-  }
-
-  .game-page .hg-block .youtube-player {
-    height: 350px;
-    padding: 0;
-  }
-
-  .game-images__dots {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    transform: translateX(-50%);
-    transition: all 0.3s;
-  }
-
-  .game-images__dots--hide {
-    transform: translate(-50%, 500%);
-  }
-
-  .game-images__dots li {
-    line-height: 0;
-  }
-
-  .game-images__dots li+li {
-    margin-left: 3px;
-  }
-
-  .game-images__dots button {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    width: 9px;
-    height: 9px;
-    font-size: 0;
-    line-height: 0;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .game-images__dots button::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 7px;
-    height: 7px;
-    background-color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s;
-  }
-
-  .game-images__dots .slick-active button::before {
-    width: 9px;
-    height: 9px;
-    background-color: #ffffff;
   }
 
   .accordion-wrapper .container {
@@ -5985,24 +5758,19 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   /* new styles */
   .game .short-game-description {
-    /* max-width: 267px;
-    margin-left: auto;
-    margin-right: auto; */
     background-color: transparent;
     border-radius: 0;
   }
 
   .game .left-side .poster {
-    /* new styles */
     margin-left: auto;
     margin-right: auto;
     display: block;
-
     max-width: 267px;
     width: 100%;
-    /* height: auto; */
   }
 
+  /* ======================= */
   .game .left-side-mobile-tabs-wrap {
     overflow: hidden;
     margin: 0 3px;
@@ -6044,7 +5812,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .left-side-mobile-tabs li {
     white-space: nowrap;
-    /* убрал марджины по бокам */
+    /* убрал марджины по бокам (было margin: 10px 10px 0; */
     margin: 10px 0 0;
     padding-bottom: 5px;
     color: #A6A7A6;
@@ -6214,6 +5982,254 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   /* new styles */
+  .game-page header {
+    transition: all 0.3s;
+  }
+
+  .game-page header .top-logo-wrap {
+    padding: 2px;
+    background-color: #bb280f;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* search field styles */
+  .open-search-btn {
+    margin-left: auto;
+    padding: 24px 15px;
+    font: inherit;
+    background-color: transparent;
+    background-image: url("../svg/icon/search.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    filter: url(#white) drop-shadow(0 0 1px #000000);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .game-page .search-block {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-bottom: 0;
+    border-radius: 20px;
+    transform: scale(0);
+    transition: transform 0.3s 1.4s,
+      right 0.7s 0.4s,
+      width 0.7s 0.4s,
+      border-radius 0.3s;
+  }
+
+  .game-page .search-block--active {
+    right: 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 0 0 15px 15px;
+    transform: scale(1);
+    transition: transform 0.3s,
+      width 0.7s 0.7s,
+      right 0.7s 0.7s,
+      border-radius 0.3s 1.4s;
+  }
+
+  .game-page .search-form {
+    height: 100%;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .game-page .search-form>input[type="submit"] {
+    width: 40px;
+    height: 100%;
+    margin: 0;
+    background-size: 80%;
+    background-position: 50% 55%;
+    cursor: pointer;
+  }
+
+  .game-page .search-form>.search-input {
+    box-sizing: border-box;
+    width: 0;
+    height: 100%;
+    margin-top: 0;
+    padding: 0;
+    transition: all 0.1s 1s;
+  }
+
+  .game-page .search-block--active .search-input {
+    width: calc(100% - 40px);
+    padding: 5px;
+  }
+
+  header .top-logo {
+    box-shadow: none;
+    width: 36px;
+    height: 36px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background-image: url('../svg/icon/hot-game.svg');
+    background-color: transparent;
+    background-size: cover;
+    filter: url('#white');
+  }
+
+  header a.logo-text {
+    color: #fff;
+    margin: 19px 0 0 4px;
+    font-size: 16px;
+  }
+
+  /* new styles */
+  .game-page header .top-logo {
+    margin: 0;
+  }
+
+  .game-page header a.logo-text {
+    display: none;
+  }
+
+  .logo-text .logo-black {
+    display: none;
+  }
+
+  .logo-text .logo-white {
+    display: unset;
+    margin: -7px 0 0 0px;
+  }
+
+  .game-page .btn-icon-new.btn-share:hover,
+  .btn-icon-new.btn-save-game:not(.active):hover {
+    filter: none;
+  }
+
+  .hide-top {
+    transform: translateY(-200%);
+  }
+
+  .hide-left {
+    transform: translateX(-200%);
+  }
+
+  .hide-right {
+    transform: translateX(200%);
+  }
+
+  /* mobile slider */
+  .game-page {
+    overflow-x: hidden;
+  }
+
+  .game-images {
+    min-height: 395px;
+    line-height: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(4px);
+  }
+
+  .game-images .slick-current .game-images__item {
+    z-index: 999;
+    background-color: #ffffff;
+  }
+
+  .game-images__item {
+    position: relative;
+    display: none;
+  }
+
+  .game-images__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(7px);
+  }
+
+  .game-images__item img {
+    width: 100%;
+    height: 395px;
+    object-fit: contain;
+    object-position: center calc(50% - 10px);
+    transition: all 0.3s;
+  }
+
+  .game-images__item--bigger img {
+    transform: scale(1.1);
+  }
+
+  .game-page .hg-block .youtube-player {
+    height: 350px;
+    padding: 0;
+  }
+
+  .game-images__dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    transform: translateX(-50%);
+    transition: all 0.3s;
+  }
+
+  .game-images__dots--hide {
+    transform: translate(-50%, 500%);
+  }
+
+  .game-images__dots li {
+    line-height: 0;
+  }
+
+  .game-images__dots li+li {
+    margin-left: 3px;
+  }
+
+  .game-images__dots button {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 9px;
+    height: 9px;
+    font-size: 0;
+    line-height: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .game-images__dots button::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+  }
+
+  .game-images__dots .slick-active button::before {
+    width: 9px;
+    height: 9px;
+    background-color: #ffffff;
+  }
+
   .game-page header .btn-menu {
     position: static;
     width: 25px;
@@ -6335,7 +6351,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: none;
   }
 
-  .game #share_links span {
+  .game .share-btns-wrap span {
     flex-shrink: 0;
     margin: 0 2px;
     transition: all 0.3s;
@@ -6562,6 +6578,14 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game .subscription-btns-block--active {
     display: flex;
   }
+
+  html {
+    overflow-x: hidden;
+  }
+  
+  #small_description {
+    order: -2;
+  }
 }
 
 @media (max-width: 480px) {
@@ -6571,8 +6595,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: 270px;
   }
 
-  .game-page .hg-block .youtube-player {
-    height: 220px;
+  .game-images {
+    min-height: 270px;
   }
 
   .game-page header .btn-menu {
