@@ -1211,6 +1211,7 @@ $(function () {
     $(this).parents('.price-block').addClass('clicked');
   });
 
+
   // NEW CODE START
   function showHideButtons(isMobile) {
     if (!isMobile) {
@@ -1297,6 +1298,7 @@ $(function () {
     arrows: false,
     adaptiveHeight: true,
     asNavFor: '#lieft_side_tabs',
+    infinite: false,
   });
 
   $('#lieft_side_tabs').slick({
@@ -1388,14 +1390,19 @@ $(function () {
     $(this).toggleClass('game-info__details--show-text');
   });
 
-  const pricesChartHeight = $('#prices_chart').height();
-
   if (document.location.hash.includes('prices_chart')) {
-    showPriceChart();
-    $(window).on('load', scrollToPriceChart);
+    $('#prices_chart').css('display', 'block');
+    $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
+
+    $(window).on('load', function() {
+      setTimeout(function() {
+        scrollToPriceChart();
+      }, 300);
+    });
 
   } else {
-    hidePriceChart();
+    $('#prices_chart').css('display', 'none');
+    $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
   }
 
   function scrollToPriceChart() {
@@ -1422,20 +1429,12 @@ $(function () {
   }
 
   function showPriceChart() {
-    setTimeout(function() {
-      $('.price-chart-wrapper').css('transform', 'translateY(0px)');
-    }, 500);
-
-    $('.price-chart-wrapper').css('margin-bottom', '14px');
+    $('#prices_chart').slideDown();
     $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
   }
 
   function hidePriceChart() {
-    setTimeout(function() {
-      $('.price-chart-wrapper').css('margin-bottom', `-${pricesChartHeight + 6}px`);
-    }, 500);
-
-    $('.price-chart-wrapper').css('transform', `translateY(-${pricesChartHeight + 20}px)`);
+    $('#prices_chart').slideUp();
     $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
   }
 
@@ -1457,16 +1456,17 @@ $(function () {
     }
 
     scrollToPriceChart();
-  })
+  });
 
   $(window).on('load', function () {
     $('.game-images__item').css('display', 'block');
     $('.game-images').css('filter', 'none');
     $('.game-images').css('background-image', 'none');
     gameImgesSlider.slick('setPosition');
-  })
+  });
 
 });
+
 
 
   // function initMobileSlider(isMobile) {
