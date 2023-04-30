@@ -1213,6 +1213,7 @@ $(function () {
 
 
   // NEW CODE START
+
   function showHideButtons(isMobile) {
     if (!isMobile) {
 
@@ -1283,6 +1284,8 @@ $(function () {
     $('.subscription-block .subscription-btns-block').removeClass('subscription-btns-block--active');
     $('#show_subscription_btns_mobile').show();
   });
+
+  // слайдер
 
   let gameImgesSlider = $('.game-images').slick({
     slidesToShow: 1,
@@ -1386,9 +1389,12 @@ $(function () {
     }
   });
 
+  // показать или скрыть многострочный текст в блоке short-game-description-mobile
   $('.game-info__details').on('click', function () {
     $(this).toggleClass('game-info__details--show-text');
   });
+
+  // график изменения цен
 
   function scrollToPriceChart() {
     $("#prices_chart")[0].scrollIntoView({
@@ -1455,12 +1461,6 @@ $(function () {
     scrollToPriceChart();
   });
 
-
-  $('.game-images__item').css('display', 'block');
-  $('.game-images').css('filter', 'none');
-  $('.game-images').css('background-image', 'none');
-  gameImgesSlider.slick('setPosition');
-
   $(window).on('load', function () {
     if (document.location.hash.includes('prices_chart')) {
       showPriceChart('none');
@@ -1474,9 +1474,16 @@ $(function () {
     }
   });
 
+
+  // блюр слайдера пока не подключился slick
+  $('.game-images__item').css('display', 'block');
+  $('.game-images').css('filter', 'none');
+  $('.game-images').css('background-image', 'none');
+  gameImgesSlider.slick('setPosition');
 });
 
 
+// старый код, который я просто не удалял на всякий случай
 
   // function initMobileSlider(isMobile) {
   //     if (!isMobile) {
