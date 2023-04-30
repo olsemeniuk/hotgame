@@ -1455,12 +1455,13 @@ $(function () {
     scrollToPriceChart();
   });
 
-  $(window).on('load', function () {
-    $('.game-images__item').css('display', 'block');
-    $('.game-images').css('filter', 'none');
-    $('.game-images').css('background-image', 'none');
-    gameImgesSlider.slick('setPosition');
 
+  $('.game-images__item').css('display', 'block');
+  $('.game-images').css('filter', 'none');
+  $('.game-images').css('background-image', 'none');
+  gameImgesSlider.slick('setPosition');
+
+  $(window).on('load', function () {
     if (document.location.hash.includes('prices_chart')) {
       showPriceChart('none');
 

@@ -5363,9 +5363,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 .game .price-chart-wrapper {
   z-index: 1;
   order: -3;
-  margin-top: -40px;
   padding: 30px 0 5px;
-  transition: all 0.3s linear;
 }
 
 #prices_chart {
