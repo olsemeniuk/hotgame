@@ -1390,21 +1390,6 @@ $(function () {
     $(this).toggleClass('game-info__details--show-text');
   });
 
-  if (document.location.hash.includes('prices_chart')) {
-    $('#prices_chart').css('display', 'block');
-    $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
-
-    $(window).on('load', function() {
-      setTimeout(function() {
-        scrollToPriceChart();
-      }, 300);
-    });
-
-  } else {
-    $('#prices_chart').css('display', 'none');
-    $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
-  }
-
   function scrollToPriceChart() {
     $("#prices_chart")[0].scrollIntoView({
       behavior: "smooth",
@@ -1420,21 +1405,33 @@ $(function () {
     const isOpened = $('.price-chart-btn-wrap').hasClass('price-chart-btn-wrap--open');
 
     if (isOpened) {
-      hidePriceChart();
+      hidePriceChart('all 0.4s');
     } else {
-      showPriceChart();
+      showPriceChart('all 0.4s');
     }
 
     addChartHash();
   }
 
-  function showPriceChart() {
-    $('#prices_chart').slideDown();
+  const priceChartHeight = $('.price-chart-wrapper').outerHeight();
+  const pirceChartOpenBtn = $('.price-chart-btn-wrap').outerHeight();
+  const chartHeightToHide = priceChartHeight - pirceChartOpenBtn;
+
+  function showPriceChart(transition) {
+    $('.price-chart-wrapper').css({
+      'marginTop': '-40px',
+      'transition': transition
+    });
+
     $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
   }
 
-  function hidePriceChart() {
-    $('#prices_chart').slideUp();
+  function hidePriceChart(transition) {
+    $('.price-chart-wrapper').css({
+      'marginTop': `-${chartHeightToHide}px`,
+      'transition': transition
+    });
+
     $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
   }
 
@@ -1449,7 +1446,7 @@ $(function () {
 
   $('.description-top-btns > .btn-price-chart').on('click', function (event) {
     event.preventDefault();
-    showPriceChart();
+    showPriceChart('none');
 
     if (!(document.location.hash.includes('prices_chart'))) {
       history.pushState(null, null, '#prices_chart');
@@ -1463,6 +1460,17 @@ $(function () {
     $('.game-images').css('filter', 'none');
     $('.game-images').css('background-image', 'none');
     gameImgesSlider.slick('setPosition');
+
+    if (document.location.hash.includes('prices_chart')) {
+      showPriceChart('none');
+
+      setTimeout(function () {
+        scrollToPriceChart();
+      }, 300);
+
+    } else {
+      hidePriceChart('none');
+    }
   });
 
 });
