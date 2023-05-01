@@ -1411,9 +1411,9 @@ $(function () {
     const isOpened = $('.price-chart-btn-wrap').hasClass('price-chart-btn-wrap--open');
 
     if (isOpened) {
-      hidePriceChart('all 0.4s');
+      hidePriceChart('margin-top 0.4s');
     } else {
-      showPriceChart('all 0.4s');
+      showPriceChart('margin-top 0.4s');
     }
 
     addChartHash();
