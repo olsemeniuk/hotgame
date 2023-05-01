@@ -6263,6 +6263,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-page .btn-share::after {
     width: 20px;
     height: 20px;
+    margin-left: -1px;
     background-image: url("../svg/icon/share.svg");
   }
 
