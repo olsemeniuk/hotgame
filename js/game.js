@@ -791,6 +791,11 @@ $(function () {
       })
       $('.game-prices-list').css('max-height', maxHeight).css('overflow', 'hidden');
     }
+// перенос на цены при нажатии #prices-spoiler
+    $('#prices-spoiler')[0].scrollIntoView({
+      behavior: 'instant',
+      block: 'end'
+    });
   }
 
   function togglePricesSpoiler() {
@@ -806,7 +811,6 @@ $(function () {
     togglePricesSpoiler();
     toggleShowHidePrices();
   }
-
 
   $('.platform-buy').on('click', function () {
     var platform = $(this).data('platform');
