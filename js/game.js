@@ -791,9 +791,11 @@ $(function () {
       })
       $('.game-prices-list').css('max-height', maxHeight).css('overflow', 'hidden');
     }
-// перенос на цены при нажатии #prices-spoiler
+  }
+
+  function scrollToPrices() {
     $('#prices-spoiler')[0].scrollIntoView({
-      behavior: 'instant',
+      behavior: 'smooth',
       block: 'end'
     });
   }
@@ -811,6 +813,8 @@ $(function () {
     togglePricesSpoiler();
     toggleShowHidePrices();
   }
+
+  $('#prices-spoiler').on('click', scrollToPrices);
 
   $('.platform-buy').on('click', function () {
     var platform = $(this).data('platform');
@@ -1436,6 +1440,7 @@ $(function () {
     $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
   }
 
+
   function hidePriceChart(transition) {
     $('.price-chart-wrapper').css({
       'marginTop': `-${chartHeightToHide}px`,
@@ -1464,6 +1469,7 @@ $(function () {
 
     scrollToPriceChart();
   });
+
 
   $(window).on('load', function () {
     if (document.location.hash.includes('prices_chart')) {

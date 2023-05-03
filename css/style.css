@@ -2241,6 +2241,7 @@ a.light-gray:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   margin-bottom: 8px;
   position: relative;
 }
@@ -5996,8 +5997,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   /* search field styles */
   .open-search-btn {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     margin-left: auto;
     font: inherit;
     background-color: transparent;
@@ -6017,18 +6018,18 @@ a:hover>.btn-extension-header.opera-addons-icon {
     top: 5px;
     right: 15px;
     z-index: 1000;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     overflow: hidden;
     margin-bottom: 0;
     border-radius: 20px;
     transform: scale(0) translate3d(0, 0, 0);
-    transition: transform 0.3s 1.4s,
-      right 0.7s 0.4s,
-      width 0.7s 0.4s,
-      top 0.3s,
-      height 0.3s,
-      border-radius 0.3s;
+    transition: transform 0.3s 0.5s,
+                right 0.5s,
+                width 0.5s,
+                top 0.5s,
+                height 0.5s,
+                border-radius 0.3s;
   }
 
   .game-page .search-block--active {
@@ -6039,11 +6040,11 @@ a:hover>.btn-extension-header.opera-addons-icon {
     border-radius: 0 0 15px 15px;
     transform: scale(1) translate3d(0, 0, 0);
     transition: transform 0.3s,
-      width 0.7s 0.7s,
-      right 0.7s 0.7s,
-      height 0.3s 1.7s,
-      top 0.3s 1.7s,
-      border-radius 0.3s 1.7s;
+                width 0.5s 0.3s,
+                right 0.5s 0.3s,
+                height 0.5s 0.3s,
+                top 0.5s 0.3s,
+                border-radius 0.3s 0.5s;
   }
 
   .game-page .search-form {
@@ -6058,12 +6059,12 @@ a:hover>.btn-extension-header.opera-addons-icon {
     background-size: 100%;
     background-position: 50% 55%;
     cursor: pointer;
-    transition: background-size 0.7s 0.7s;
+    transition: background-size 0.5s;
   }
   
   .game-page .search-block--active input[type="submit"] {
     background-size: 80%;
-    transition: background-size 0.7s 0.5s;
+    transition: background-size 0.5s 0.3s;
   }
 
   .game-page .search-form>.search-input {
@@ -6263,9 +6264,9 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-page .btn-share,
   .game-page .btn-save-game {
     position: absolute;
-    top: 315px;
-    width: 40px;
-    height: 40px;
+    top: 320px;
+    width: 35px;
+    height: 35px;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -6289,16 +6290,16 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .game-page .btn-share::after {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     margin-left: -1px;
     background-image: url("../svg/icon/share.svg");
   }
 
   .game-page .btn-save-game::after {
     left: 54%;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     background-image: url("../svg/icon/save-game.svg");
   }
 
@@ -6582,7 +6583,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .game .subscription-block {
     position: relative;
-    padding-top: 3px;
   }
 
   .subscription-block::before {
@@ -6600,7 +6600,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     justify-content: center;
     align-items: center;
     width: auto;
-    padding: 3px 0;
+    padding: 7px 0;
     font-size: 16px;
     line-height: 20px;
     filter: url('#active')
@@ -6621,7 +6621,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game .subscription-btns-block {
     position: relative;
     justify-content: center;
-    padding: 1px 40px;
+    padding: 5px 40px;
   }
 
   .game .subscription-btns-block--active {
@@ -6636,7 +6636,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   #hide_subscription_btns_mobile {
     position: absolute;
     right: 10px;
-    bottom: -1px;
+    bottom: 2px;
     width: 25px;
     height: 25px;
   }
@@ -6689,7 +6689,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-page .btn-share,
   .game-page .btn-save-game,
   .game .share-btns-block {
-    top: 190px;
+    top: 195px;
   }
 
   .sys-rec-header-block {
