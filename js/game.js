@@ -1374,12 +1374,15 @@ $(function () {
       $('.game-page .btn-share').addClass('hide-left');
       $('.share-btns-block').addClass('hide-left');
       $('.game-images__dots').addClass('game-images__dots--hide');
-      // $('.game .game-info-main').addClass('game-info--move');
-      // $('.game-images__item').addClass('game-images__item--bigger');
+      $('.game .game-info-main').addClass('game-info--move');
+      $('.game-images__item').addClass('game-images__item--bigger');
     }
 
     if (itemsInvisible) {
-      Fancybox.bind("[data-fancybox]", {});
+      Fancybox.bind("[data-fancybox='gallery']", {
+        animated: false,
+      });
+
       showSliderButtons();
     }
   }
@@ -1398,8 +1401,8 @@ $(function () {
     $('.game-page .btn-share').removeClass('hide-left');
     $('.share-btns-block').removeClass('hide-left');
     $('.game-images__dots').removeClass('game-images__dots--hide');
-    // $('.game .game-info-main').removeClass('game-info--move');
-    // $('.game-images__item').removeClass('game-images__item--bigger');
+    $('.game .game-info-main').removeClass('game-info--move');
+    $('.game-images__item').removeClass('game-images__item--bigger');
   }
 
   // показать или скрыть многострочный текст в блоке short-game-description-mobile

@@ -6354,7 +6354,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-page .btn-share--active::before {
     content: ":";
     position: absolute;
-    top: 4px;
+    top: 1.5px;
     right: 2px;
     font-size: 25px;
     color: #bb280f;
@@ -6362,7 +6362,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .game .share-btns-block {
     position: absolute;
-    top: 315px;
+    top: 320px;
     left: 10px;
     display: flex !important;
     width: 30px;
@@ -6386,7 +6386,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .game .share-btns-block--active {
     width: auto;
-    padding: 8px 10px 7px 40px;
+    padding: 6px 10px 4px 40px;
     background-color: #fff;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   }
