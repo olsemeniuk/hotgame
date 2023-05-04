@@ -1479,18 +1479,16 @@ $(function () {
   });
 
 
-  $(window).on('load', function () {
-    if (document.location.hash.includes('prices_chart')) {
-      showPriceChart('none');
+  if (document.location.hash.includes('prices_chart')) {
+    showPriceChart('none');
 
-      setTimeout(function () {
-        scrollToPriceChart();
-      }, 300);
+    setTimeout(function () {
+      scrollToPriceChart();
+    }, 300);
 
-    } else {
-      hidePriceChart('none');
-    }
-  });
+  } else {
+    hidePriceChart('none');
+  }
 
 
   // блюр слайдера пока не подключился slick
