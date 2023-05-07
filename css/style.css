@@ -5371,8 +5371,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
   order: -3;
   margin-top: -40px;
   padding: 30px 0 5px;
-  will-change: margin;
-  transform: translate3d(0, 0, 0.001px);
+  will-change: margin-top;
+  transform: translate3d(0.001px, 0.001px, 0.001px);
 }
 
 #prices_chart {
@@ -6204,7 +6204,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .game-images__dots--hide {
-    transform: translate3d(-50%, 300%, 0);
+    transform: translate3d(-50%, 310%, 0);
   }
 
   .game-images__dots li {

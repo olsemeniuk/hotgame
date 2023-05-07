@@ -1427,9 +1427,9 @@ $(function () {
     const isOpened = $('.price-chart-btn-wrap').hasClass('price-chart-btn-wrap--open');
 
     if (isOpened) {
-      hidePriceChart('margin-top 0.5s');
+      hidePriceChart(500);
     } else {
-      showPriceChart('margin-top 0.5s');
+      showPriceChart(500);
     }
 
     addChartHash();
@@ -1439,22 +1439,13 @@ $(function () {
   const pirceChartOpenBtn = $('.price-chart-btn-wrap').outerHeight();
   const chartHeightToHide = priceChartHeight - pirceChartOpenBtn;
 
-  function showPriceChart(transition) {
-    $('.price-chart-wrapper').css({
-      'marginTop': '-40px',
-      'transition': transition
-    });
-
+  function showPriceChart(duration) {
+    $('.price-chart-wrapper').animate({ marginTop: '-40px' }, duration);
     $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
   }
 
-
-  function hidePriceChart(transition) {
-    $('.price-chart-wrapper').css({
-      'marginTop': `-${chartHeightToHide}px`,
-      'transition': transition
-    });
-
+  function hidePriceChart(duration) {
+    $('.price-chart-wrapper').animate({ marginTop: `-${chartHeightToHide}px` }, duration);
     $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
   }
 
@@ -1469,7 +1460,7 @@ $(function () {
 
   $('.description-top-btns > .btn-price-chart').on('click', function (event) {
     event.preventDefault();
-    showPriceChart('none');
+    showPriceChart(0);
 
     if (!(document.location.hash.includes('prices_chart'))) {
       history.pushState(null, null, '#prices_chart');
@@ -1480,14 +1471,14 @@ $(function () {
 
 
   if (document.location.hash.includes('prices_chart')) {
-    showPriceChart('none');
+    showPriceChart(0);
 
     setTimeout(function () {
       scrollToPriceChart();
     }, 300);
 
   } else {
-    hidePriceChart('none');
+    hidePriceChart(0);
   }
 
 
