@@ -1427,9 +1427,9 @@ $(function () {
     const isOpened = $('.price-chart-btn-wrap').hasClass('price-chart-btn-wrap--open');
 
     if (isOpened) {
-      hidePriceChart('margin-top 0.4s');
+      hidePriceChart('margin-top 0.5s');
     } else {
-      showPriceChart('margin-top 0.4s');
+      showPriceChart('margin-top 0.5s');
     }
 
     addChartHash();

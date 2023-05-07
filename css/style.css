@@ -5371,7 +5371,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
   order: -3;
   margin-top: -40px;
   padding: 30px 0 5px;
-  transform: translate3d(0, 0, 0);
+  will-change: margin;
+  transform: translate3d(0, 0, 0.001px);
 }
 
 #prices_chart {
@@ -5986,7 +5987,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .game-page header {
     align-items: center;
-    transition: all 0.3s;
+    transition: transform 0.5s;
   }
 
   .game-page header .top-logo-wrap {
@@ -6023,6 +6024,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     overflow: hidden;
     margin-bottom: 0;
     border-radius: 20px;
+    will-change: transform, width, height, top;
     transform: scale(0) translate3d(0, 0, 0);
     transition: transform 0.3s 0.5s,
                 right 0.5s,
@@ -6179,7 +6181,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     height: 395px;
     object-fit: cover;
     object-position: center;
-    transition: all 0.3s;
+    transition: transform 0.5s;
   }
 
   .game-images__item--bigger img {
@@ -6198,11 +6200,11 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: flex;
     align-items: center;
     transform: translateX(-50%);
-    transition: all 0.3s;
+    transition: transform 0.5s;
   }
 
   .game-images__dots--hide {
-    transform: translate3d(-50%, 500%, 0);
+    transform: translate3d(-50%, 300%, 0);
   }
 
   .game-images__dots li {
@@ -6275,7 +6277,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     border-radius: 50%;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.5s;
   }
 
   .game-page .btn-share::after,
@@ -6306,7 +6308,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-page .btn-share {
     left: 10px;
     z-index: 2;
-    transition: all 0.3s;
   }
 
   .game-page .game .btn-save-game {
@@ -6328,11 +6329,11 @@ a:hover>.btn-extension-header.opera-addons-icon {
     background-color: #ffffff;
     border-radius: 15px 15px 0 0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s;
+    transition: transform 0.5s;
   }
 
   .game .game-info--move {
-    margin-top: -15px;
+    transform: translate3d(0, 10px, 0);
   }
 
   .game-info-main>.game-title span:not(.game-platforms-desktop) {
@@ -6369,7 +6370,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     overflow: hidden;
     padding: 4px 0 5px;
     border-radius: 20px;
-    transition: all 0.3s;
+    will-change: padding, width;
+    transition: padding 0.5s;
   }
 
   #hide_share_btns {
@@ -6381,7 +6383,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     width: 25px;
     height: 25px;
     margin: 0 2px;
-    transition: all 0.3s;
+    transition: all 0.5s;
   }
 
   .game .share-btns-block--active {
