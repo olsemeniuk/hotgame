@@ -793,12 +793,14 @@ $(function () {
     }
   }
 
-  function scrollToPrices() {
-    $('#prices-spoiler')[0].scrollIntoView({
-      behavior: 'smooth',
-      block: 'end'
-    });
-  }
+  $('#prices-spoiler').on('click', function() {
+    if (!$('#prices-spoiler').hasClass('active')) {
+      $('#prices_block')[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
 
   function togglePricesSpoiler() {
     if ($('.price-list-item').filter(':visible').length > 5) {
@@ -813,8 +815,6 @@ $(function () {
     togglePricesSpoiler();
     toggleShowHidePrices();
   }
-
-  $('#prices-spoiler').on('click', scrollToPrices);
 
   $('.platform-buy').on('click', function () {
     var platform = $(this).data('platform');
