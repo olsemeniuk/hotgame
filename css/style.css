@@ -4535,7 +4535,7 @@ div.modal-content {
   padding: 20px 20px 16px 20px;
   vertical-align: top;
   overflow: hidden;
-  /* height: 224px; */
+  
 }
 
 .subscribe-block .body .title-wrapper {
@@ -5750,9 +5750,9 @@ a:hover>.btn-extension-header.opera-addons-icon {
     vertical-align: middle;
   }
 
-  /* .container .game-preview {
-    margin: 0 8px 16px;
-  } */
+  
+  
+  
 
   .game .social-big {
     display: none;
@@ -6797,9 +6797,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .game-preview > a img {
-    min-width: 100%;
     width: calc(100vw / 2 - 16px);
-    height: 100%;
     max-height: calc((100vw / 2 - 16px) * 375/267);
   }
 }
