@@ -5866,7 +5866,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .short-game-description-mobile .game-genres {
     display: block;
   }
-
+/* 
   .short-game-description-mobile .game-genres .genre:hover,
   .short-game-description-mobile .game-genres .genre:hover::before,
   .short-game-description-mobile .game-genres .network-icon:hover {
@@ -5875,7 +5875,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .short-game-description-mobile .game-genres .genre:hover span {
     color: #A6A7A6;
-  }
+  } */
   
   .short-game-description .game-info>.game-title {
     display: block;
