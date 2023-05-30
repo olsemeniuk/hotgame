@@ -5863,6 +5863,20 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: none;
   }
 
+  .short-game-description-mobile .game-genres {
+    display: block;
+  }
+
+  .short-game-description-mobile .game-genres .genre:hover,
+  .short-game-description-mobile .game-genres .genre:hover::before,
+  .short-game-description-mobile .game-genres .network-icon:hover {
+    filter: url('#static');
+  }
+
+  .short-game-description-mobile .game-genres .genre:hover span {
+    color: #A6A7A6;
+  }
+  
   .short-game-description .game-info>.game-title {
     display: block;
   }
@@ -6144,7 +6158,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: blur(4px);
+    filter: blur(10px);
+    transform: scale(1.2);
   }
 
   .game-images .slick-current .game-images__item {

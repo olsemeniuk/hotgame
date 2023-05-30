@@ -1482,9 +1482,10 @@ $(function () {
   }
 
 
-  // блюр слайдера пока не подключился slick
+  // блюр слайдера пока не подключился slick  
   $('.game-images__item').css('display', 'block');
   $('.game-images').css('filter', 'none');
+  $('.game-images').css('transform', 'none');
   $('.game-images').css('background-image', 'none');
   gameImgesSlider.slick('setPosition');
 });
