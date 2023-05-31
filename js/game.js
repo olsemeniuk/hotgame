@@ -1115,7 +1115,7 @@ $(function () {
 
     $('.sys-rec-tab-content').hide();
     $(target).show();
-    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
+    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
     // swiperInit();
   });
 
@@ -1186,8 +1186,8 @@ $(function () {
 
   $(window).on('resize', function() {
     resize();
-    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
-    truncateText('.game-info .game-info__details', '.game-info');
+    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
+    truncateText('.game-info .game-info__details', '.game-info', 35);
   });
   resize();
 
@@ -1419,14 +1419,14 @@ $(function () {
 
   createPseudoText('.sys-rec-block .game-info__details')
   createPseudoText('.game-info .game-info__details')
-  truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
-  truncateText('.game-info .game-info__details', '.game-info');
-
-  function truncateText(selector, parentSelector) {
+  truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
+  truncateText('.game-info .game-info__details', '.game-info', 35);
+  
+  function truncateText(selector, parentSelector, correction) {
     const textBlocks = document.querySelectorAll(selector);
     textBlocks.forEach(text => {
       const parentBlock = text.closest(parentSelector);
-      const maxWidth = parentBlock.offsetWidth - 50;
+      const maxWidth = parentBlock.offsetWidth - correction;
       const pseudoText = text.querySelector('span.visually-hidden');
       const textWidth = pseudoText.scrollWidth;
       if (textWidth === 0) return;
