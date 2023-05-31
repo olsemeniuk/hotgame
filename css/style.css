@@ -6451,7 +6451,11 @@ a:hover>.btn-extension-header.opera-addons-icon {
     box-shadow: none;
   }
 
-  .game-info__details--hidden,
+  .game-info__details {
+    white-space: nowrap;
+  }
+
+  .game-info__details,
   .game-info__details-icons--hidden {
     white-space: nowrap;
     overflow: hidden;
@@ -6470,10 +6474,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .sys-rec-body .game-info__details {
-    display: inline-block;
-  }
-
-  .sys-rec-body .game-info__details--hidden {
     display: -webkit-box;
     max-width: 100%;
     -webkit-line-clamp: 1;
@@ -6491,7 +6491,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .sys-rec-body .game-info__details--show-text {
-    display: inline-block;
+    display: block;
   }
 
   .hg-block .rating-block {

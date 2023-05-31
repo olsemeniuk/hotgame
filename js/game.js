@@ -1115,7 +1115,7 @@ $(function () {
 
     $('.sys-rec-tab-content').hide();
     $(target).show();
-    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
+    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 52);
     // swiperInit();
   });
 
@@ -1186,8 +1186,8 @@ $(function () {
 
   $(window).on('resize', function() {
     resize();
-    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
-    truncateText('.game-info .game-info__details', '.game-info', 35);
+    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 52);
+    truncateText('.game-info-slide .game-info__details', '.game-info', 0);
     truncateIcons();
   });
   resize();
@@ -1450,27 +1450,24 @@ $(function () {
     });
   }
 
-  createPseudoText('.sys-rec-block .game-info__details')
-  createPseudoText('.game-info .game-info__details')
-  truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
-  truncateText('.game-info .game-info__details', '.game-info', 35);
+  createPseudoText('.sys-rec-block .game-info__details');
+  createPseudoText('.game-info-slide .game-info__details');
+  truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 52);
+  truncateText('.game-info-slide .game-info__details', '.game-info', 0);
   
   function truncateText(selector, parentSelector, correction) {
     const textBlocks = document.querySelectorAll(selector);
     textBlocks.forEach(text => {
       const parentBlock = text.closest(parentSelector);
-      const maxWidth = parentBlock.offsetWidth - correction;
+      const maxWidth = parentBlock.offsetWidth;
       const pseudoText = text.querySelector('span.visually-hidden');
-      const textWidth = pseudoText.scrollWidth;
-      if (textWidth === 0) return;
-      if (textWidth > maxWidth) {
-        text.classList.add('game-info__details--hidden');
+      const textWidth = pseudoText.scrollWidth + correction;
+      if (textWidth >= maxWidth) {
         text.setAttribute('title', 'Нажмите, чтобы раскрыть полностью');
         text.addEventListener('click', () => {
           text.removeAttribute('title');
         });
       } else {
-        text.classList.remove('game-info__details--hidden');
         text.removeAttribute('title');
       }
     });
