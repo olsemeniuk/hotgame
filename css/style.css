@@ -22,6 +22,22 @@ body {
   min-width: 320px;
   position: relative;
 }
+/* ======================== */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+					clip-path: inset(100%);
+}
+
+/* ======================== */
 
 .default-font {
   font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
@@ -6434,13 +6450,27 @@ a:hover>.btn-extension-header.opera-addons-icon {
     box-shadow: none;
   }
 
-  .game-info__details {
+  .game-info__details--hidden {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
+  .game-info__details .game-networks,
+  .game-info__details .genre {
+    pointer-events: none;
+  }
+
+  .game-info__details--show-text .game-networks,
+  .game-info__details--show-text .genre {
+    pointer-events: auto;
+  }
+
   .sys-rec-body .game-info__details {
+    display: inline-block;
+  }
+
+  .sys-rec-body .game-info__details--hidden {
     display: -webkit-box;
     max-width: 100%;
     -webkit-line-clamp: 1;
@@ -6457,7 +6487,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .sys-rec-body .game-info__details--show-text {
-    display: block;
+    display: inline-block;
   }
 
   .hg-block .rating-block {

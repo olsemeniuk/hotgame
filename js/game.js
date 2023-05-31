@@ -793,7 +793,7 @@ $(function () {
     }
   }
 
-  $('#prices-spoiler').on('click', function() {
+  $('#prices-spoiler').on('click', function () {
     if (!$('#prices-spoiler').hasClass('active')) {
       $('#prices_block')[0].scrollIntoView({
         behavior: 'smooth',
@@ -1115,8 +1115,8 @@ $(function () {
 
     $('.sys-rec-tab-content').hide();
     $(target).show();
-
-    swiperInit();
+    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
+    // swiperInit();
   });
 
   $('.info-wide-close').on('click', function (e) {
@@ -1184,7 +1184,11 @@ $(function () {
     showHideButtons(isMobile);
   }
 
-  $(window).on('resize', resize);
+  $(window).on('resize', function() {
+    resize();
+    truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
+    truncateText('.game-info .game-info__details', '.game-info');
+  });
   resize();
 
   $('.youtube-player').each(function () {
@@ -1325,7 +1329,6 @@ $(function () {
     infoSlider.slick('setPosition');
   });
 
-
   $('.open-search-btn').on('click', showSearchForm);
 
   $(document).on('click', function (event) {
@@ -1407,11 +1410,48 @@ $(function () {
 
   // показать или скрыть многострочный текст в блоке short-game-description-mobile
   $('.game-info__details').on('click', function () {
-    $(this).toggleClass('game-info__details--show-text');
+    $(this).addClass('game-info__details--show-text');
   });
 
-  // график изменения цен
+  createPseudoText('.sys-rec-block .game-info__details')
+  createPseudoText('.game-info .game-info__details')
+  truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
+  truncateText('.game-info .game-info__details', '.game-info');
 
+  function truncateText(selector, parentSelector) {
+    const textBlocks = document.querySelectorAll(selector);
+    textBlocks.forEach(text => {
+      const parentBlock = text.closest(parentSelector);
+      const maxWidth = parentBlock.offsetWidth - 50;
+      const pseudoText = text.querySelector('span.visually-hidden');
+      const textWidth = pseudoText.scrollWidth;
+      if (textWidth === 0) return;
+      if (textWidth > maxWidth) {
+        text.classList.add('game-info__details--hidden');
+        text.setAttribute('title', 'Нажмите, чтобы раскрыть полностью');
+        text.addEventListener('click', () => {
+          text.removeAttribute('title');
+        });
+      } else {
+        text.classList.remove('game-info__details--hidden');
+        text.removeAttribute('title');
+      }
+    });
+  }
+
+  function createPseudoText(selector) {
+    const textBlocks = document.querySelectorAll(selector);
+    textBlocks.forEach(text => {
+      const span = document.createElement('span');
+      span.className = 'visually-hidden';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = text.textContent;
+      text.append(span);
+    })
+  }
+
+
+  // график изменения цен
   function scrollToPriceChart() {
     $("#prices_chart")[0].scrollIntoView({
       behavior: "smooth",
