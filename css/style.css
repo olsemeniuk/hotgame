@@ -5862,20 +5862,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game .left-side>.video-block {
     display: none;
   }
-
-  .short-game-description-mobile .game-genres {
-    display: block;
-  }
-/* 
-  .short-game-description-mobile .game-genres .genre:hover,
-  .short-game-description-mobile .game-genres .genre:hover::before,
-  .short-game-description-mobile .game-genres .network-icon:hover {
-    filter: url('#static');
-  }
-
-  .short-game-description-mobile .game-genres .genre:hover span {
-    color: #A6A7A6;
-  } */
   
   .short-game-description .game-info>.game-title {
     display: block;
@@ -6413,6 +6399,10 @@ a:hover>.btn-extension-header.opera-addons-icon {
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
+  }
+
+  .game-info__item:hover {
+    filter: url('#static');
   }
 
   .game-info__list {
