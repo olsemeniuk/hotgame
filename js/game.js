@@ -1188,6 +1188,7 @@ $(function () {
     resize();
     truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 115);
     truncateText('.game-info .game-info__details', '.game-info', 35);
+    truncateIcons();
   });
   resize();
 
@@ -1416,6 +1417,38 @@ $(function () {
   $('.game-info__details-icons').on('click', function() {
     $(this).addClass('game-info__details-icons--show');
   })
+
+
+  truncateIcons();
+
+  function truncateIcons() {
+    const mobileGenreIcons = document.querySelectorAll('.game-info__icon');
+    const mobileGenreIconsWrapper = document.querySelector('.game-info__details-icons');
+    const wrapperWidth = mobileGenreIconsWrapper.offsetWidth;
+    let totalIconsWidth = 0;
+
+    mobileGenreIcons.forEach(icon => {
+      totalIconsWidth += icon.scrollWidth + 28;
+    });
+
+    if (totalIconsWidth >= wrapperWidth - 35) {
+      mobileGenreIconsWrapper.classList.add('game-info__details-icons--hidden');
+      mobileGenreIconsWrapper.setAttribute('title', 'Нажмите, чтобы раскрыть полностью');
+    } else {
+      mobileGenreIconsWrapper.classList.remove('game-info__details-icons--hidden');
+      mobileGenreIconsWrapper.removeAttribute('title');
+    }
+
+    mobileGenreIcons.forEach(icon => {
+      const iconOffsetLeft = icon.getBoundingClientRect().left;
+      if (iconOffsetLeft > wrapperWidth - 35) {
+        icon.style.opacity = 0;
+      }
+      if (totalIconsWidth <= wrapperWidth) {
+        icon.style.opacity = 1;
+      }
+    });
+  }
 
   createPseudoText('.sys-rec-block .game-info__details')
   createPseudoText('.game-info .game-info__details')

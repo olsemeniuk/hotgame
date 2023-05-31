@@ -6452,20 +6452,21 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .game-info__details--hidden,
-  .game-info__details-icons {
+  .game-info__details-icons--hidden {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .game-info__details-icons .game-networks,
-  .game-info__details-icons .genre {
+  .game-info__details-icons--hidden .game-networks,
+  .game-info__details-icons--hidden .genre {
     pointer-events: none;
   }
 
   .game-info__details-icons--show .game-networks,
   .game-info__details-icons--show .genre {
     pointer-events: auto;
+    opacity: 1 !important;
   }
 
   .sys-rec-body .game-info__details {
