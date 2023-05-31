@@ -6441,7 +6441,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .hg-block .short-game-description-mobile,
-  .short-game-description-mobile .game-info__details {
+  .short-game-description-mobile .game-info__details,
+  .short-game-description-mobile .game-info__details-icons {
     display: block;
   }
 
@@ -6450,19 +6451,20 @@ a:hover>.btn-extension-header.opera-addons-icon {
     box-shadow: none;
   }
 
-  .game-info__details--hidden {
+  .game-info__details--hidden,
+  .game-info__details-icons {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .game-info__details .game-networks,
-  .game-info__details .genre {
+  .game-info__details-icons .game-networks,
+  .game-info__details-icons .genre {
     pointer-events: none;
   }
 
-  .game-info__details--show-text .game-networks,
-  .game-info__details--show-text .genre {
+  .game-info__details-icons--show .game-networks,
+  .game-info__details-icons--show .genre {
     pointer-events: auto;
   }
 
@@ -6480,7 +6482,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
     white-space: unset;
   }
 
-  .game-info__details--show-text {
+  .game-info__details--show-text,
+  .game-info__details-icons--show {
     white-space: unset;
     overflow: auto;
     text-overflow: clip;

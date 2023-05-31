@@ -1413,6 +1413,10 @@ $(function () {
     $(this).addClass('game-info__details--show-text');
   });
 
+  $('.game-info__details-icons').on('click', function() {
+    $(this).addClass('game-info__details-icons--show');
+  })
+
   createPseudoText('.sys-rec-block .game-info__details')
   createPseudoText('.game-info .game-info__details')
   truncateText('.sys-rec-block .game-info__details', '.sys-rec-body');
