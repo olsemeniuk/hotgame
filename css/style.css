@@ -146,7 +146,6 @@ textarea {
 }
 
 @media (min-width: 769px) {
-
   .mobile-only,
   .game-grade {
     display: none;
@@ -162,6 +161,16 @@ textarea {
   .hg-block-desktop:hover {
     -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.35);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.35);
+  }
+
+  .game .subscribe-btns-block.hide,
+  .game .subscribe-btns-block.hide {
+    display: none;
+  }
+
+  .game .share-btns-block.show,
+  .game .subscription-btns-block.show {
+    display: flex;
   }
 }
 
@@ -6382,7 +6391,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     position: absolute;
     top: 320px;
     left: 10px;
-    display: flex !important;
+    display: block !important;
     width: 30px;
     overflow: hidden;
     padding: 4px 0 5px;
@@ -6393,6 +6402,10 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   #hide_share_btns {
     display: none;
+  }
+
+  .game .share-btns-wrap {
+    margin: 0 auto;
   }
 
   .game .share-btns-wrap span {
@@ -6446,6 +6459,11 @@ a:hover>.btn-extension-header.opera-addons-icon {
     display: block;
   }
 
+  .short-game-description-mobile .game-info__details-icons {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
   .hg-block .short-game-description-mobile {
     margin-bottom: 0;
     box-shadow: none;
@@ -6465,6 +6483,10 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-info__details-icons--hidden .game-networks,
   .game-info__details-icons--hidden .genre {
     pointer-events: none;
+  }
+
+  .short-game-description-mobile .game-info__details-icons--show {
+    white-space: unset;
   }
 
   .game-info__details-icons--show .game-networks,
@@ -6644,7 +6666,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     padding: 7px 0;
     font-size: 16px;
     line-height: 20px;
-    filter: url('#active')
+    filter: url("#static")
   }
 
   #show_subscription_btns_mobile::before {
@@ -6659,14 +6681,26 @@ a:hover>.btn-extension-header.opera-addons-icon {
     background-position: center;
   }
 
+  #show_subscription_btns_mobile:hover {
+    filter: url("#hover");
+  }
+
+  #show_subscription_btns_mobile.active {
+    filter: url('#active');
+  }
+
   .game .subscription-btns-block {
     position: relative;
     justify-content: center;
     padding: 5px 40px;
   }
 
-  .game .subscription-btns-block--active {
+  .game .subscription-btns-block.show-mobile {
     display: flex;
+  }
+
+  #show_subscription_btns_mobile.hide-mobile {
+    display: none;
   }
 
   .subscription-btns-wrap .platform-icon {

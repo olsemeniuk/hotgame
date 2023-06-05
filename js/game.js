@@ -1181,10 +1181,9 @@ $(function () {
 
     // new code
     toggleGameSlides(isMobile);
-    showHideButtons(isMobile);
   }
 
-  $(window).on('resize', function() {
+  $(window).on('resize', function () {
     resize();
     truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 52);
     truncateText('.game-info-slide .game-info__details', '.game-info', 0);
@@ -1227,47 +1226,45 @@ $(function () {
 
   // NEW CODE START
 
-  function showHideButtons(isMobile) {
-    if (!isMobile) {
-
-      $('#show_share_btns').on('click', showShareButtons);
-      $('#hide_share_btns').on('click', hideShareButtons);
-      $('#show_subscription_btns').on('click', showSubscrButtons);
-      $('#hide_subscription_btns').on('click', hideSubscrButtons);
-
-      $('#show_share_btns').off('click', showHideMobileShareButtons);
-
+  $('#show_share_btns').on('click', function () {
+    if ($(window).width() <= 768) {
+      showHideMobileShareButtons();
     } else {
-
-      $('#show_share_btns').off('click', showShareButtons);
-      $('#hide_share_btns').off('click', hideShareButtons);
-      $('#show_subscription_btns').off('click', showSubscrButtons);
-      $('#hide_subscription_btns').off('click', hideSubscrButtons);
-
-      $('#show_share_btns').on('click', showHideMobileShareButtons);
+      showHideButtons($('.subscribe-btns-block'), $('.share-btns-block'), 'show');
     }
-  }
+  });
 
-  function showShareButtons() {
-    $('.share-btns-block').css('display', 'flex');
-    $('.subscribe-btns-block').hide();
-  }
+  $('#hide_share_btns').on('click', function () {
+    showHideButtons($('.share-btns-block'), $('.subscribe-btns-block'), 'hide');
+  });
 
-  function hideShareButtons() {
-    $('.share-btns-block').hide();
-    $('.subscribe-btns-block').css('display', 'flex');
-  }
-
-  function showSubscrButtons() {
-    $('.subscription-btns-block').css('display', 'flex');
-    $('.subscribe-btns-block').hide();
-
+  $('#show_subscription_btns').on('click', function () {
+    showHideButtons($('.subscribe-btns-block'), $('.subscription-btns-block'), 'show');
     return false;
-  }
+  });
 
-  function hideSubscrButtons() {
-    $('.subscription-btns-block').hide();
-    $('.subscribe-btns-block').css('display', 'flex');
+  $('#hide_subscription_btns').on('click', function () {
+    showHideButtons($('.subscription-btns-block'), $('.subscribe-btns-block'), 'hide');
+  });
+
+  $('#show_subscription_btns_mobile').on('click', function () {
+    $('#show_subscription_btns_mobile').addClass('hide-mobile');
+    $('.subscription-btns-block').addClass('show-mobile');
+  });
+
+  $('#hide_subscription_btns_mobile').on('click', function () {
+    $('#show_subscription_btns_mobile').removeClass('hide-mobile');
+    $('.subscription-btns-block').removeClass('show-mobile');
+  });
+
+  function showHideButtons(hideElement, showElement, showHide) {
+    if (showHide === 'show') {
+      showElement.addClass('show');
+      hideElement.addClass('hide');
+    } else if (showHide === 'hide') {
+      showElement.removeClass('hide');
+      hideElement.removeClass('show');
+    }
   }
 
   function showHideMobileShareButtons() {
@@ -1288,15 +1285,36 @@ $(function () {
 
   $('#show_subscription_btns_mobile').on('click', function (event) {
     event.preventDefault();
-
-    $('.subscription-block .subscription-btns-block').addClass('subscription-btns-block--active');
-    $('#show_subscription_btns_mobile').hide();
+    showHideButtons($('#show_subscription_btns_mobile'), $('.subscription-block .subscription-btns-block'), 'show');
   });
 
   $('#hide_subscription_btns_mobile').on('click', function () {
-    $('.subscription-block .subscription-btns-block').removeClass('subscription-btns-block--active');
-    $('#show_subscription_btns_mobile').show();
+    showHideButtons($('.subscription-block .subscription-btns-block'), $('#show_subscription_btns_mobile'), 'hide');
   });
+
+  $('.subscribe-user').on('click', function () {
+    activetedSubscriptionShow();
+  });
+
+  activetedSubscriptionShow();
+
+  function activetedSubscriptionShow() {
+    const subscribed = $('.subscription-btns-wrap .active');
+    if (subscribed.length > 0) {
+      $('#show_subscription_btns').addClass('active');
+      $('#show_subscription_btns_mobile').addClass('active');
+      const platforms = []
+      subscribed.each(function (index, item) {
+        platforms.push(item.dataset.platform);
+      });
+
+      $('.subscribe-user').each(function (index, item) {
+        if (platforms.indexOf(item.dataset.platform) !== -1) {
+          item.classList.add('active');
+        }
+      })
+    }
+  }
 
   // слайдер
 
@@ -1414,7 +1432,7 @@ $(function () {
     $(this).addClass('game-info__details--show-text');
   });
 
-  $('.game-info__details-icons').on('click', function() {
+  $('.game-info__details-icons').on('click', function () {
     $(this).addClass('game-info__details-icons--show');
   })
 
@@ -1440,9 +1458,11 @@ $(function () {
     }
 
     mobileGenreIcons.forEach(icon => {
-      const iconOffsetLeft = icon.getBoundingClientRect().left;
-      if (iconOffsetLeft > wrapperWidth - 35) {
+      const iconOffsetLeft = icon.getBoundingClientRect().left - 28;
+      if (iconOffsetLeft > wrapperWidth - 45) {
         icon.style.opacity = 0;
+      } else {
+        icon.style.opacity = 1;
       }
       if (totalIconsWidth <= wrapperWidth) {
         icon.style.opacity = 1;
@@ -1454,7 +1474,7 @@ $(function () {
   createPseudoText('.game-info-slide .game-info__details');
   truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 52);
   truncateText('.game-info-slide .game-info__details', '.game-info', 0);
-  
+
   function truncateText(selector, parentSelector, correction) {
     const textBlocks = document.querySelectorAll(selector);
     textBlocks.forEach(text => {
@@ -1562,6 +1582,8 @@ $(function () {
   $('.game-images').css('transform', 'none');
   $('.game-images').css('background-image', 'none');
   gameImgesSlider.slick('setPosition');
+
+
 });
 
 
