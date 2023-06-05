@@ -5870,7 +5870,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .short-game-description-mobile .game-genres {
     border-bottom: 1px solid #F0F0F0;
     margin: 0px -10px;
-    padding: 0 10px;
   }
 
   .short-game-description-mobile .rating-block {
@@ -6492,7 +6491,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game-info__details-icons--show .game-networks,
   .game-info__details-icons--show .genre {
     pointer-events: auto;
-    opacity: 1 !important;
   }
 
   .sys-rec-body .game-info__details {

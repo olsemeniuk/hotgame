@@ -1456,18 +1456,6 @@ $(function () {
       mobileGenreIconsWrapper.classList.remove('game-info__details-icons--hidden');
       mobileGenreIconsWrapper.removeAttribute('title');
     }
-
-    mobileGenreIcons.forEach(icon => {
-      const iconOffsetLeft = icon.getBoundingClientRect().left - 28;
-      if (iconOffsetLeft > wrapperWidth - 45) {
-        icon.style.opacity = 0;
-      } else {
-        icon.style.opacity = 1;
-      }
-      if (totalIconsWidth <= wrapperWidth) {
-        icon.style.opacity = 1;
-      }
-    });
   }
 
   createPseudoText('.sys-rec-block .game-info__details');
