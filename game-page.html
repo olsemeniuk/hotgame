@@ -1380,12 +1380,14 @@
                         </span>
                       </div>
                       <div class="game-info__details-icons game-genres">
-                        <span class="game-info__icon hidden-link genre genre-rpg" data-href="/genres=rpg"><span>RPG</span></span>
+                        <span class="game-info__icon hidden-link genre genre-rpg"
+                          data-href="/genres=rpg"><span>RPG</span></span>
                         <span class="game-info__icon hidden-link genre genre-action"
                           data-href="/genres=action"><span>Action</span></span>
                         <span class="game-info__icon hidden-link genre genre-adventure"
                           data-href="/genres=adventure"><span>Adventure</span></span>
-                        <span class="game-info__icon hidden-link genre genre-rpg" data-href="/genres=rpg"><span>RPG</span></span>
+                        <span class="game-info__icon hidden-link genre genre-rpg"
+                          data-href="/genres=rpg"><span>RPG</span></span>
                         <span class="game-info__icon hidden-link genre genre-action"
                           data-href="/genres=action"><span>Action</span></span>
                         <span class="game-info__icon hidden-link genre genre-adventure"
@@ -1484,7 +1486,9 @@
                             <td><span class="svg-icon icon-directx" title="DirectX"></span></td>
                             <td>
                               <div class="game-info__details">
-                                DirectX 12 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, dolores sequi illo aliquam adipisci animi aliquid, quaerat cum quos ullam veritatis iure molestias reiciendis. Tempore sequi tenetur iure ex adipisci.
+                                DirectX 12 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, dolores sequi
+                                illo aliquam adipisci animi aliquid, quaerat cum quos ullam veritatis iure molestias
+                                reiciendis. Tempore sequi tenetur iure ex adipisci.
                               </div>
                             </td>
                             <td></td>
@@ -1559,7 +1563,9 @@
                             <td><span class="svg-icon icon-other" title="Другие требования"></span></td>
                             <td>
                               <div class="game-info__details">
-                                SSD Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo voluptatem minus suscipit eveniet quae libero cumque saepe iure, deserunt non quasi sed, quam tempora, odit consectetur porro explicabo necessitatibus aliquam!
+                                SSD Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo voluptatem minus
+                                suscipit eveniet quae libero cumque saepe iure, deserunt non quasi sed, quam tempora,
+                                odit consectetur porro explicabo necessitatibus aliquam!
                               </div>
                             </td>
                             <td></td>
@@ -2662,126 +2668,128 @@
           </div>
         </div>
         <div class="hg-block price-chart-wrapper">
-          <svg id="prices_chart" class="" style="width: 100%; height: 220px;">
-            <defs>
-              <marker id="suit" viewBox="0 -5 10 10" refX="5" refY="-1" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0,-5L10,0L0,5"></path>
-              </marker>
-              <marker id="licensing" viewBox="0 -5 10 10" refX="5" refY="-1" markerWidth="6" markerHeight="6"
-                orient="auto">
-                <path d="M0,-5L10,0L0,5"></path>
-              </marker>
-              <marker id="resolved" viewBox="0 -5 10 10" refX="5" refY="-1" markerWidth="6" markerHeight="6"
-                orient="auto">
-                <path d="M0,-5L10,0L0,5"></path>
-              </marker>
-            </defs>
-            <defs>
-              <filter id="dropshadow">
-                <fegaussianblur in="SourceAlpha" stdDeviation="3" result="blur"></fegaussianblur>
-                <feoffset in="blur" dx="1" dy="2" result="offsetBlur"></feoffset>
-                <feflood in="offsetBlur" flood-color="#3d3d3d" flood-opacity="0.5" result="offsetColor"></feflood>
-                <femerge>
-                  <femergenode in="offsetBlur"></femergenode>
-                  <femergenode in="SourceGraphic"></femergenode>
-                </femerge>
-              </filter>
-            </defs>
-            <g class="x axis" transform="translate(0,180)"><text class="x_axis_label" dy="1.1em" dx="700"
-                fill="#da2304">t</text>
-              <g class="tick" transform="translate(130.6815501936622,0)" style="opacity: 1;">
-                <line y2="-160" x2="0"></line><text dy=".71em" y="3" x="0" style="text-anchor: middle;">10.2022</text>
+          <div class="price-chart-inner">
+            <svg id="prices_chart" class="" style="width: 100%; height: 220px;">
+              <defs>
+                <marker id="suit" viewBox="0 -5 10 10" refX="5" refY="-1" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0,-5L10,0L0,5"></path>
+                </marker>
+                <marker id="licensing" viewBox="0 -5 10 10" refX="5" refY="-1" markerWidth="6" markerHeight="6"
+                  orient="auto">
+                  <path d="M0,-5L10,0L0,5"></path>
+                </marker>
+                <marker id="resolved" viewBox="0 -5 10 10" refX="5" refY="-1" markerWidth="6" markerHeight="6"
+                  orient="auto">
+                  <path d="M0,-5L10,0L0,5"></path>
+                </marker>
+              </defs>
+              <defs>
+                <filter id="dropshadow">
+                  <fegaussianblur in="SourceAlpha" stdDeviation="3" result="blur"></fegaussianblur>
+                  <feoffset in="blur" dx="1" dy="2" result="offsetBlur"></feoffset>
+                  <feflood in="offsetBlur" flood-color="#3d3d3d" flood-opacity="0.5" result="offsetColor"></feflood>
+                  <femerge>
+                    <femergenode in="offsetBlur"></femergenode>
+                    <femergenode in="SourceGraphic"></femergenode>
+                  </femerge>
+                </filter>
+              </defs>
+              <g class="x axis" transform="translate(0,180)"><text class="x_axis_label" dy="1.1em" dx="700"
+                  fill="#da2304">t</text>
+                <g class="tick" transform="translate(130.6815501936622,0)" style="opacity: 1;">
+                  <line y2="-160" x2="0"></line><text dy=".71em" y="3" x="0" style="text-anchor: middle;">10.2022</text>
+                </g>
+                <g class="tick" transform="translate(243.36703132603907,0)" style="opacity: 1;">
+                  <line y2="-160" x2="0"></line><text dy=".71em" y="3" x="0" style="text-anchor: middle;">01.2023</text>
+                </g>
+                <path class="domain" d="M56,-160V0H315.6000061035156V-160"></path>
               </g>
-              <g class="tick" transform="translate(243.36703132603907,0)" style="opacity: 1;">
-                <line y2="-160" x2="0"></line><text dy=".71em" y="3" x="0" style="text-anchor: middle;">01.2023</text>
+              <g class="y axis" transform="translate(56,0)"><text class="y_axis_label" dy="1.2em" dx="-30"
+                  fill="#da2304">₽</text>
+                <g class="tick" transform="translate(0,171.24904214559385)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">1,000</text>
+                </g>
+                <g class="tick" transform="translate(0,155.92337164750958)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">2,000</text>
+                </g>
+                <g class="tick" transform="translate(0,140.5977011494253)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">3,000</text>
+                </g>
+                <g class="tick" transform="translate(0,125.272030651341)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">4,000</text>
+                </g>
+                <g class="tick" transform="translate(0,109.94636015325672)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">5,000</text>
+                </g>
+                <g class="tick" transform="translate(0,94.62068965517241)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">6,000</text>
+                </g>
+                <g class="tick" transform="translate(0,79.29501915708812)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">7,000</text>
+                </g>
+                <g class="tick" transform="translate(0,63.96934865900383)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">8,000</text>
+                </g>
+                <g class="tick" transform="translate(0,48.64367816091955)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">9,000</text>
+                </g>
+                <g class="tick" transform="translate(0,33.31800766283525)" style="opacity: 1;">
+                  <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
+                    style="text-anchor: end;">10,000</text>
+                </g>
+                <path class="domain" d="M259.6000061035156,20H0V180H259.6000061035156"></path>
               </g>
-              <path class="domain" d="M56,-160V0H315.6000061035156V-160"></path>
-            </g>
-            <g class="y axis" transform="translate(56,0)"><text class="y_axis_label" dy="1.2em" dx="-30"
-                fill="#da2304">₽</text>
-              <g class="tick" transform="translate(0,171.24904214559385)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">1,000</text>
+              <path class="line" stroke-width="1.5" fill="none" style="stroke: rgb(218, 35, 4);"
+                d="M88.5269438445939,33.33333333333334L89.6441063782286,111.47892720306514L91.07584283685938,111.46360153256704L91.28159118780275,111.2183908045977L91.69053729029764,110.39080459770115L92.30438154393863,110.85057471264366L92.510129894882,110.94252873563217L92.9190759973769,111.46360153256704L93.53462065061245,111.47892720306514L99.47156583506536,111.40229885057474L99.88221233715484,111.15708812260536L100.08626028850364,110.68199233716476L100.49520639099853,111.29501915708812L100.7009547419419,111.15708812260536L101.3139487957856,110.68199233716476L101.72374509807779,110.97318007662835L101.92949344902117,111.04980842911878L102.34013995111063,111.08045977011494L103.56867865818988,111.23371647509579L103.77357680933598,111.3103448275862L104.18252291183086,110.68199233716476L104.38742106297695,111.47892720306514L106.84619887673004,110.68199233716476L107.8706896324605,109.80842911877396L108.0755877836066,111.47892720306514L116.47301118140714,107.14176245210729L116.67790933255324,111.47892720306514L118.52114249307077,110.8199233716475L119.13583694650904,111.46360153256704L119.54563324880121,111.18773946360153L119.74968120015004,110.78927203065135L120.1594775024422,110.57471264367817L120.3643756535883,111.47892720306514L169.58074151891975,33.33333333333334L172.24356728402165,110.727969348659L231.8544758709801,97.53256704980842L232.05937402212618,97.8390804597701L232.2642721732723,101.90038314176246L232.4691703244184,102.36015325670498L232.8781164269133,100.99616858237547L233.28791272920546,100.75095785440614L233.32787211967795,120.68965517241378L242.0891810307172,98.42145593869732L242.09768302869008,96.50574712643679L242.30173098003885,95.87739463601534L242.50747933098225,95.58620689655172L245.37265264783835,96.9808429118774L245.7832991499278,90.3448275862069L246.19309545222,98.97318007662835L246.6020415547149,96.44444444444444L247.01183785700707,96.90421455938697L247.42163415929926,96.44444444444444L247.62568211064809,98.4521072796935L247.83143046159148,98.71264367816092L248.24037656408632,96.68965517241378L248.4461249150297,96.81226053639847L248.65017286637854,98.3448275862069L248.8559212173219,98.09961685823754L249.060819368468,98.3448275862069L249.47061567076017,96.96551724137932L249.67636402170353,96.90421455938697L249.88041197305236,97.5632183908046L250.08531012419843,97.71647509578544L250.28935807554726,97.05747126436782L250.70000457763672,97.02681992337165L250.90490272878284,97.11877394636015L253.77177644523348,98.89655172413794L253.97667459637958,100.32183908045975L255.00031515231277,101.05747126436782L255.20606350325616,100.91954022988506L255.61500960575103,100.59770114942529L256.2297040591893,100.56704980842912L256.4337520105381,102.1455938697318L256.8435483128303,101.86973180076627L257.04844646397635,101.24137931034483L257.2524944153252,99.84674329501917L257.45739256647124,102.5287356321839L257.66229071761734,102.94252873563218L258.6859312735505,103.14176245210727L258.8899792248993,102.85057471264368L259.0948773760454,101.59386973180077L259.2997755271915,101.44061302681992L259.7087216296864,105.14942528735634L262.3715473947883,101.91570881226053L262.57644554593435,102.1455938697318L262.7804934972832,101.68582375478927L262.9862418482266,101.74712643678161L263.39603815051873,101.82375478927203L263.60008610186753,102.03831417624521L263.80498425301363,101.8544061302682L264.0098824041597,101.5785440613027L264.2147805553058,101.74712643678161L264.6237266578007,102.06896551724138L264.8286248089468,101.36398467432952L265.0335229600929,102.02298850574714L265.23842111123895,101.22605363984675L265.44501966197964,101.21072796934864L265.85311556467724,101.74712643678161L266.05886391562063,101.67049808429121L266.46781001811553,101.21072796934864L266.6727081692617,100.95019157088123L267.28740262269986,101.91570881226053L267.49315097364325,102.02298850574714L267.6971989249921,101.6551724137931L267.90209707613815,102.36015325670498L270.77067119218344,102.0536398467433L270.97726974292414,102.03831417624521L271.18046749447564,101.8544061302682L271.38451544582443,101.47126436781609L271.79601214771117,101.50191570881226L272.20410805040876,101.79310344827587L272.41070660114946,101.73180076628351L272.61390435270096,101.34865900383141L272.81880250384705,100.88888888888889L273.02370065499315,101.50191570881226L273.6383951084314,101.1647509578544L274.2530895618697,100.85823754789273L274.66373606395916,100.91954022988506L274.86778401530796,101.28735632183908L275.0718319666568,100.64367816091954L275.2784305173974,100.62835249042145L275.48077806915165,100.82758620689657L275.89057437144385,101.18007662835251L276.09632272238724,101.05747126436782L276.300370673736,100.50574712643679L276.70931677623093,99.31034482758622L279.168094589984,100.81226053639844L279.57959129187077,100.82758620689657L279.78278904342227,100.32183908045975L280.8055793995581,99.57088122605364L281.01132775050155,99.49425287356321L282.0341181066374,99.89272030651341L282.2398664575808,100.03065134099617L282.44561480852417,100.06130268199234L282.64881256007567,100.35249042145594L282.85456091101906,100.44444444444444L283.17168543540697,151.34099616858236L289.7369282700547,166.66666666666666">
+              </path>
+              <line x1="56" y1="181" x2="56" y2="20" stroke-width="1" shape-rendering="crispEdges"
+                marker-end="url(#licensing)" style="stroke: black;"></line>
+              <line x1="56" y1="180" x2="335.6000061035156" y2="180" stroke-width="1" shape-rendering="crispEdges"
+                marker-end="url(#licensing)" style="stroke: black;"></line>
+              <circle class="circle" stroke="#da2304" cx="88.5269438445939" cy="33.33333333333334" fill="white" r="3.4"
+                stroke-opacity="1" fill-opacity="1" stroke-width="1"></circle>
+              <circle class="circle" stroke="#da2304" cx="169.58074151891975" cy="33.33333333333334" fill="white" r="3.4"
+                stroke-opacity="1" fill-opacity="1" stroke-width="1"></circle>
+              <circle class="circle" stroke="#da2304" cx="289.7369282700547" cy="166.66666666666666" fill="white" r="3.4"
+                stroke-opacity="1" fill-opacity="1" stroke-width="1"></circle><text class="label" text-anchor="start"
+                x="173.8342959906843" y="28.17160062715785" fill="black">
+                <tspan>
+                  <tspan fill="#da2304">max</tspan> 9999
+                </tspan>
+              </text><text class="label" text-anchor="start" x="271.6000061035156" y="158.86200748486792" fill="black">
+                <tspan>
+                  <tspan fill="#da2304">min</tspan> 1299
+                </tspan>
+              </text>
+              <g style="display: none;">
+                <line class="x" y1="0" y2="200" style="stroke: rgb(218, 35, 4); stroke-dasharray: 2; opacity: 0.5;">
+                </line>
+                <line class="y" x1="335.6000061035156" x2="335.6000061035156"
+                  style="stroke: rgb(218, 35, 4); stroke-dasharray: 2; opacity: 0.5;"></line><text class="y3" dx="8"
+                  dy="1em" style="stroke: white; stroke-width: 3.5px; opacity: 0.8;"></text><text fill="#da2304"
+                  class="y4" dx="8" dy="1em"></text><text class="y1" dx="-18" dy="+1.3em"
+                  style="stroke: white; stroke-width: 3.5px; opacity: 0.8;"></text><text class="y2" dx="-18"
+                  dy="+1.3em"></text>
               </g>
-              <g class="tick" transform="translate(0,155.92337164750958)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">2,000</text>
-              </g>
-              <g class="tick" transform="translate(0,140.5977011494253)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">3,000</text>
-              </g>
-              <g class="tick" transform="translate(0,125.272030651341)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">4,000</text>
-              </g>
-              <g class="tick" transform="translate(0,109.94636015325672)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">5,000</text>
-              </g>
-              <g class="tick" transform="translate(0,94.62068965517241)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">6,000</text>
-              </g>
-              <g class="tick" transform="translate(0,79.29501915708812)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">7,000</text>
-              </g>
-              <g class="tick" transform="translate(0,63.96934865900383)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">8,000</text>
-              </g>
-              <g class="tick" transform="translate(0,48.64367816091955)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">9,000</text>
-              </g>
-              <g class="tick" transform="translate(0,33.31800766283525)" style="opacity: 1;">
-                <line x2="259.6000061035156" y2="0"></line><text dy=".32em" x="-3" y="0"
-                  style="text-anchor: end;">10,000</text>
-              </g>
-              <path class="domain" d="M259.6000061035156,20H0V180H259.6000061035156"></path>
-            </g>
-            <path class="line" stroke-width="1.5" fill="none" style="stroke: rgb(218, 35, 4);"
-              d="M88.5269438445939,33.33333333333334L89.6441063782286,111.47892720306514L91.07584283685938,111.46360153256704L91.28159118780275,111.2183908045977L91.69053729029764,110.39080459770115L92.30438154393863,110.85057471264366L92.510129894882,110.94252873563217L92.9190759973769,111.46360153256704L93.53462065061245,111.47892720306514L99.47156583506536,111.40229885057474L99.88221233715484,111.15708812260536L100.08626028850364,110.68199233716476L100.49520639099853,111.29501915708812L100.7009547419419,111.15708812260536L101.3139487957856,110.68199233716476L101.72374509807779,110.97318007662835L101.92949344902117,111.04980842911878L102.34013995111063,111.08045977011494L103.56867865818988,111.23371647509579L103.77357680933598,111.3103448275862L104.18252291183086,110.68199233716476L104.38742106297695,111.47892720306514L106.84619887673004,110.68199233716476L107.8706896324605,109.80842911877396L108.0755877836066,111.47892720306514L116.47301118140714,107.14176245210729L116.67790933255324,111.47892720306514L118.52114249307077,110.8199233716475L119.13583694650904,111.46360153256704L119.54563324880121,111.18773946360153L119.74968120015004,110.78927203065135L120.1594775024422,110.57471264367817L120.3643756535883,111.47892720306514L169.58074151891975,33.33333333333334L172.24356728402165,110.727969348659L231.8544758709801,97.53256704980842L232.05937402212618,97.8390804597701L232.2642721732723,101.90038314176246L232.4691703244184,102.36015325670498L232.8781164269133,100.99616858237547L233.28791272920546,100.75095785440614L233.32787211967795,120.68965517241378L242.0891810307172,98.42145593869732L242.09768302869008,96.50574712643679L242.30173098003885,95.87739463601534L242.50747933098225,95.58620689655172L245.37265264783835,96.9808429118774L245.7832991499278,90.3448275862069L246.19309545222,98.97318007662835L246.6020415547149,96.44444444444444L247.01183785700707,96.90421455938697L247.42163415929926,96.44444444444444L247.62568211064809,98.4521072796935L247.83143046159148,98.71264367816092L248.24037656408632,96.68965517241378L248.4461249150297,96.81226053639847L248.65017286637854,98.3448275862069L248.8559212173219,98.09961685823754L249.060819368468,98.3448275862069L249.47061567076017,96.96551724137932L249.67636402170353,96.90421455938697L249.88041197305236,97.5632183908046L250.08531012419843,97.71647509578544L250.28935807554726,97.05747126436782L250.70000457763672,97.02681992337165L250.90490272878284,97.11877394636015L253.77177644523348,98.89655172413794L253.97667459637958,100.32183908045975L255.00031515231277,101.05747126436782L255.20606350325616,100.91954022988506L255.61500960575103,100.59770114942529L256.2297040591893,100.56704980842912L256.4337520105381,102.1455938697318L256.8435483128303,101.86973180076627L257.04844646397635,101.24137931034483L257.2524944153252,99.84674329501917L257.45739256647124,102.5287356321839L257.66229071761734,102.94252873563218L258.6859312735505,103.14176245210727L258.8899792248993,102.85057471264368L259.0948773760454,101.59386973180077L259.2997755271915,101.44061302681992L259.7087216296864,105.14942528735634L262.3715473947883,101.91570881226053L262.57644554593435,102.1455938697318L262.7804934972832,101.68582375478927L262.9862418482266,101.74712643678161L263.39603815051873,101.82375478927203L263.60008610186753,102.03831417624521L263.80498425301363,101.8544061302682L264.0098824041597,101.5785440613027L264.2147805553058,101.74712643678161L264.6237266578007,102.06896551724138L264.8286248089468,101.36398467432952L265.0335229600929,102.02298850574714L265.23842111123895,101.22605363984675L265.44501966197964,101.21072796934864L265.85311556467724,101.74712643678161L266.05886391562063,101.67049808429121L266.46781001811553,101.21072796934864L266.6727081692617,100.95019157088123L267.28740262269986,101.91570881226053L267.49315097364325,102.02298850574714L267.6971989249921,101.6551724137931L267.90209707613815,102.36015325670498L270.77067119218344,102.0536398467433L270.97726974292414,102.03831417624521L271.18046749447564,101.8544061302682L271.38451544582443,101.47126436781609L271.79601214771117,101.50191570881226L272.20410805040876,101.79310344827587L272.41070660114946,101.73180076628351L272.61390435270096,101.34865900383141L272.81880250384705,100.88888888888889L273.02370065499315,101.50191570881226L273.6383951084314,101.1647509578544L274.2530895618697,100.85823754789273L274.66373606395916,100.91954022988506L274.86778401530796,101.28735632183908L275.0718319666568,100.64367816091954L275.2784305173974,100.62835249042145L275.48077806915165,100.82758620689657L275.89057437144385,101.18007662835251L276.09632272238724,101.05747126436782L276.300370673736,100.50574712643679L276.70931677623093,99.31034482758622L279.168094589984,100.81226053639844L279.57959129187077,100.82758620689657L279.78278904342227,100.32183908045975L280.8055793995581,99.57088122605364L281.01132775050155,99.49425287356321L282.0341181066374,99.89272030651341L282.2398664575808,100.03065134099617L282.44561480852417,100.06130268199234L282.64881256007567,100.35249042145594L282.85456091101906,100.44444444444444L283.17168543540697,151.34099616858236L289.7369282700547,166.66666666666666">
-            </path>
-            <line x1="56" y1="181" x2="56" y2="20" stroke-width="1" shape-rendering="crispEdges"
-              marker-end="url(#licensing)" style="stroke: black;"></line>
-            <line x1="56" y1="180" x2="335.6000061035156" y2="180" stroke-width="1" shape-rendering="crispEdges"
-              marker-end="url(#licensing)" style="stroke: black;"></line>
-            <circle class="circle" stroke="#da2304" cx="88.5269438445939" cy="33.33333333333334" fill="white" r="3.4"
-              stroke-opacity="1" fill-opacity="1" stroke-width="1"></circle>
-            <circle class="circle" stroke="#da2304" cx="169.58074151891975" cy="33.33333333333334" fill="white" r="3.4"
-              stroke-opacity="1" fill-opacity="1" stroke-width="1"></circle>
-            <circle class="circle" stroke="#da2304" cx="289.7369282700547" cy="166.66666666666666" fill="white" r="3.4"
-              stroke-opacity="1" fill-opacity="1" stroke-width="1"></circle><text class="label" text-anchor="start"
-              x="173.8342959906843" y="28.17160062715785" fill="black">
-              <tspan>
-                <tspan fill="#da2304">max</tspan> 9999
-              </tspan>
-            </text><text class="label" text-anchor="start" x="271.6000061035156" y="158.86200748486792" fill="black">
-              <tspan>
-                <tspan fill="#da2304">min</tspan> 1299
-              </tspan>
-            </text>
-            <g style="display: none;">
-              <line class="x" y1="0" y2="200" style="stroke: rgb(218, 35, 4); stroke-dasharray: 2; opacity: 0.5;">
-              </line>
-              <line class="y" x1="335.6000061035156" x2="335.6000061035156"
-                style="stroke: rgb(218, 35, 4); stroke-dasharray: 2; opacity: 0.5;"></line><text class="y3" dx="8"
-                dy="1em" style="stroke: white; stroke-width: 3.5px; opacity: 0.8;"></text><text fill="#da2304"
-                class="y4" dx="8" dy="1em"></text><text class="y1" dx="-18" dy="+1.3em"
-                style="stroke: white; stroke-width: 3.5px; opacity: 0.8;"></text><text class="y2" dx="-18"
-                dy="+1.3em"></text>
-            </g>
-            <rect width="335.6000061035156" height="200" style="fill: none; pointer-events: all;"></rect>
-          </svg>
-          <div class="price-chart-btn-wrap">
-            <span class="btn-icon-new btn-arrow-down static"></span>
-            <a href="#prices_chart" class="light-gray">
-              <span class="btn-icon-new btn-price-chart static"></span>
-              График мин. цены
-            </a>
-            <span class="btn-icon-new btn-arrow-down static"></span>
+              <rect width="335.6000061035156" height="200" style="fill: none; pointer-events: all;"></rect>
+            </svg>
+            <div class="price-chart-btn-wrap">
+              <span class="btn-icon-new btn-arrow-down static"></span>
+              <a href="#prices_chart" class="light-gray">
+                <span class="btn-icon-new btn-price-chart static"></span>
+                График мин. цены
+              </a>
+              <span class="btn-icon-new btn-arrow-down static"></span>
+            </div>
           </div>
         </div>
         <!-- <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"></script> -->

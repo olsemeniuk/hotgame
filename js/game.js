@@ -1303,16 +1303,16 @@ $(function () {
     if (subscribed.length > 0) {
       $('#show_subscription_btns').addClass('active');
       $('#show_subscription_btns_mobile').addClass('active');
-      const platforms = []
+      const platforms = [];
       subscribed.each(function (index, item) {
-        platforms.push(item.dataset.platform);
+        platforms.push($(item).attr('data-platform'));
       });
 
       $('.subscribe-user').each(function (index, item) {
-        if (platforms.indexOf(item.dataset.platform) !== -1) {
-          item.classList.add('active');
+        if (platforms.indexOf($(item).attr('data-platform')) !== -1) {
+          $(item).addClass('active');
         }
-      })
+      });
     }
   }
 
@@ -1440,22 +1440,26 @@ $(function () {
   truncateIcons();
 
   function truncateIcons() {
-    const mobileGenreIcons = document.querySelectorAll('.game-info__icon');
-    const mobileGenreIconsWrapper = document.querySelector('.game-info__details-icons');
-    const wrapperWidth = mobileGenreIconsWrapper.offsetWidth;
+    const mobileGenreIcons = $('.game-info__icon');
+    const mobileGenreIconsWrapper = $('.game-info__details-icons');
+    const wrapperWidth = mobileGenreIconsWrapper.width();
     let totalIconsWidth = 0;
 
-    mobileGenreIcons.forEach(icon => {
+    mobileGenreIcons.each(function (index, icon) {
       totalIconsWidth += icon.scrollWidth + 28;
     });
 
     if (totalIconsWidth >= wrapperWidth - 35) {
-      mobileGenreIconsWrapper.classList.add('game-info__details-icons--hidden');
-      mobileGenreIconsWrapper.setAttribute('title', 'Нажмите, чтобы раскрыть полностью');
+      mobileGenreIconsWrapper.addClass('game-info__details-icons--hidden');
+      mobileGenreIconsWrapper.attr('title', 'Нажмите, чтобы раскрыть полностью');
     } else {
-      mobileGenreIconsWrapper.classList.remove('game-info__details-icons--hidden');
-      mobileGenreIconsWrapper.removeAttribute('title');
+      mobileGenreIconsWrapper.removeClass('game-info__details-icons--hidden');
+      mobileGenreIconsWrapper.removeAttr('title');
     }
+
+    mobileGenreIconsWrapper.on('click', function () {
+      mobileGenreIconsWrapper.removeAttr('title');
+    });
   }
 
   createPseudoText('.sys-rec-block .game-info__details');
@@ -1464,32 +1468,32 @@ $(function () {
   truncateText('.game-info-slide .game-info__details', '.game-info', 0);
 
   function truncateText(selector, parentSelector, correction) {
-    const textBlocks = document.querySelectorAll(selector);
-    textBlocks.forEach(text => {
+    $(selector).each(function (index, text) {
       const parentBlock = text.closest(parentSelector);
-      const maxWidth = parentBlock.offsetWidth;
-      const pseudoText = text.querySelector('span.visually-hidden');
-      const textWidth = pseudoText.scrollWidth + correction;
+      const maxWidth = $(parentBlock).width();
+      const pseudoText = $(text).find('span.visually-hidden');
+      const textWidth = pseudoText[0].scrollWidth + correction;
+
       if (textWidth >= maxWidth) {
-        text.setAttribute('title', 'Нажмите, чтобы раскрыть полностью');
-        text.addEventListener('click', () => {
-          text.removeAttribute('title');
+        $(text).attr('title', 'Нажмите, чтобы раскрыть полностью');
+        $(text).on('click', function () {
+          $(this).removeAttr('title');
         });
       } else {
-        text.removeAttribute('title');
+        $(text).removeAttr('title');
       }
     });
   }
 
   function createPseudoText(selector) {
-    const textBlocks = document.querySelectorAll(selector);
-    textBlocks.forEach(text => {
-      const span = document.createElement('span');
-      span.className = 'visually-hidden';
-      span.setAttribute('aria-hidden', 'true');
-      span.textContent = text.textContent;
-      text.append(span);
-    })
+    $(selector).each(function (index, text) {
+      $('<span></span>', {
+        text: $(text).text(),
+        class: 'visually-hidden',
+      })
+        .attr('aria-hidden', 'true')
+        .appendTo(text);
+    });
   }
 
 
@@ -1520,15 +1524,19 @@ $(function () {
   const priceChartHeight = $('.price-chart-wrapper').outerHeight();
   const pirceChartOpenBtn = $('.price-chart-btn-wrap').outerHeight();
   const chartHeightToHide = priceChartHeight - pirceChartOpenBtn;
-
+  
   function showPriceChart(duration) {
-    $('.price-chart-wrapper').animate({ marginTop: '-40px' }, duration);
+    $('.price-chart-wrapper').animate({ marginTop: '-40px' }, duration, 'linear');
     $('.price-chart-btn-wrap').addClass('price-chart-btn-wrap--open');
+    $('.price-chart-wrapper').css('clip-path', 'polygon(-4px -4px, calc(100% + 4px) -4px, calc(100% + 4px) calc(100% + 4px), -4px calc(100% + 4px))');
+    $('.price-chart-wrapper').removeClass('price-chart-wrapper--open');
   }
-
+  
   function hidePriceChart(duration) {
-    $('.price-chart-wrapper').animate({ marginTop: `-${chartHeightToHide}px` }, duration);
+    $('.price-chart-wrapper').animate({ marginTop: `-${chartHeightToHide}px` }, duration, 'linear');
+    $('.price-chart-wrapper').css('clip-path', `polygon(-4px ${chartHeightToHide - 30}px, calc(100% + 4px) ${chartHeightToHide - 30}px, calc(100% + 4px) calc(100% + 4px), -4px calc(100% + 4px))`);
     $('.price-chart-btn-wrap').removeClass('price-chart-btn-wrap--open');
+    $('.price-chart-wrapper').addClass('price-chart-wrapper--open');
   }
 
 
@@ -1551,7 +1559,6 @@ $(function () {
     scrollToPriceChart();
   });
 
-
   if (document.location.hash.includes('prices_chart')) {
     showPriceChart(0);
 
@@ -1563,16 +1570,17 @@ $(function () {
     hidePriceChart(0);
   }
 
-
   // блюр слайдера пока не подключился slick  
   $('.game-images__item').css('display', 'block');
   $('.game-images').css('filter', 'none');
   $('.game-images').css('transform', 'none');
   $('.game-images').css('background-image', 'none');
   gameImgesSlider.slick('setPosition');
-
-
 });
+
+const chartInner = document.querySelector('.price-chart-inner');
+const openChartButtonHeight = document.querySelector('.price-chart-btn-wrap').offsetHeight;
+chartInner.style.setProperty('--bg-height', `${openChartButtonHeight + 30}px`);
 
 
 // старый код, который я просто не удалял на всякий случай
