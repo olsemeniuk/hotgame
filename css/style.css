@@ -6464,6 +6464,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .game .share-btns-wrap {
     margin: 0 auto;
+    flex-wrap: nowrap;
   }
 
   .game .share-btns-wrap span {
