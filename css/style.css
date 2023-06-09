@@ -6796,11 +6796,9 @@ a:hover>.btn-extension-header.opera-addons-icon {
   }
 
   .game .subscription-btns-block {
-    position: relative;
     justify-content: center;
-    max-width: 78%;
-    margin: 0 auto;
-    padding: 5px 40px;
+    margin-right: 30px;
+    padding: 5px 15px;
   }
 
   .game .subscription-btns-block.show-mobile {
@@ -6818,7 +6816,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   #hide_subscription_btns_mobile {
     position: absolute;
-    right: 10px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 25px;
