@@ -2860,7 +2860,51 @@ a.light-gray:hover {
   display: flex;
   justify-content: space-around;
   width: 78%;
-  flex-wrap: wrap;
+}
+
+.subscription-btns-block .subscription-btns-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.subscription-btns-inner {
+  width: 100%;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  justify-content: flex-start;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  gap: 4px;
+}
+
+.subscription-btns-inner .platform-icon {
+  margin: 0 auto;
+}
+
+.subscription-btns-inner::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.subscription-btns-wrap--left-shadow::before,
+.subscription-btns-wrap--right-shadow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  height: 100%;
+  box-shadow: 0 0 5px 5px #ffffff;
+}
+
+.subscription-btns-wrap--left-shadow::before {
+  left: 0;
+}
+
+.subscription-btns-wrap--right-shadow::after {
+  right: 0;
 }
 
 @media (min-width: 769px) {
@@ -6721,10 +6765,14 @@ a:hover>.btn-extension-header.opera-addons-icon {
     justify-content: center;
     align-items: center;
     width: auto;
-    padding: 7px 0;
+    padding: 8px 0;
     font-size: 16px;
     line-height: 20px;
     filter: url('#static')
+  }
+
+  .subscription-btns-block .subscription-btns-wrap {
+    width: 100%;
   }
 
   .show_subscription_btns_mobile::before {
@@ -6750,6 +6798,8 @@ a:hover>.btn-extension-header.opera-addons-icon {
   .game .subscription-btns-block {
     position: relative;
     justify-content: center;
+    max-width: 78%;
+    margin: 0 auto;
     padding: 5px 40px;
   }
 
