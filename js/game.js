@@ -1175,20 +1175,27 @@ $(function () {
     }
   }
 
+  // arrays for icons truncation
+  let removedIcons = [];
+  let removedIconsWidth = [];
+  truncateIcons();
+
   function resize() {
     var isMobile = $(window).width() <= 768;
 
     toggleDescriptionImages(isMobile);
-
-    // new code
     toggleGameSlides(isMobile);
   }
-
+  
   $(window).on('resize', function () {
     resize();
     truncateText('.sys-rec-block .game-info__details', '.sys-rec-body', 52);
     truncateText('.game-info-slide .game-info__details', '.game-info', 0);
-    truncateIcons();
+
+    const refreshIconsTruncation = setInterval(truncateIcons, 100);
+    setTimeout(function() {
+      clearInterval(refreshIconsTruncation);
+    }, 1000);
   });
   resize();
 
@@ -1412,12 +1419,12 @@ $(function () {
     $(this).addClass('game-info__details-icons--show');
   })
 
-
-  truncateIcons();
-
   function truncateIcons() {
     const mobileGenreIcons = $('.game-info__icon');
     const mobileGenreIconsWrapper = $('.game-info__details-icons');
+
+    if (mobileGenreIconsWrapper.hasClass('game-info__details-icons--show')) return;
+
     const wrapperWidth = mobileGenreIconsWrapper.width();
     let totalIconsWidth = 0;
 
@@ -1425,16 +1432,40 @@ $(function () {
       totalIconsWidth += icon.scrollWidth + 28;
     });
 
-    if (totalIconsWidth >= wrapperWidth - 35) {
+    if (wrapperWidth < 200) return;
+
+    if (totalIconsWidth > wrapperWidth - 28) {
       mobileGenreIconsWrapper.addClass('game-info__details-icons--hidden');
-      mobileGenreIconsWrapper.attr('title', 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°ÑÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ');
-    } else {
+      mobileGenreIconsWrapper.attr('title', 'Нажмите, чтобы раскрыть полностью');
+
+      let indexToRemove = mobileGenreIcons.length - 1;
+      while ((totalIconsWidth > wrapperWidth - 40) && indexToRemove >= 0) {
+        removedIcons.push(mobileGenreIcons[indexToRemove]);
+        removedIconsWidth.push(mobileGenreIcons[indexToRemove].scrollWidth);
+        totalIconsWidth -= mobileGenreIcons[indexToRemove].scrollWidth + 28;
+        mobileGenreIcons[indexToRemove].remove();
+        indexToRemove -= 1;
+      }
+    }
+
+    let indexToAppend = removedIcons.length - 1;
+    if ((wrapperWidth - 40 - totalIconsWidth > removedIconsWidth[indexToAppend]) && indexToAppend >= 0) {
+      mobileGenreIconsWrapper.append(removedIcons[indexToAppend]);
+      removedIcons.pop();
+      removedIconsWidth.pop();
+    }
+
+    if (removedIcons.length === 0) {
       mobileGenreIconsWrapper.removeClass('game-info__details-icons--hidden');
       mobileGenreIconsWrapper.removeAttr('title');
     }
 
     mobileGenreIconsWrapper.on('click', function () {
+      mobileGenreIconsWrapper.removeClass('game-info__details-icons--hidden');
       mobileGenreIconsWrapper.removeAttr('title');
+      mobileGenreIconsWrapper.append(...removedIcons);
+      removedIcons = [];
+      removedIconsWidth = [];
     });
   }
 
@@ -1451,7 +1482,7 @@ $(function () {
       const textWidth = pseudoText[0].scrollWidth + correction;
 
       if (textWidth >= maxWidth) {
-        $(text).attr('title', 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°ÑÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ');
+        $(text).attr('title', 'Нажмите, чтобы раскрыть полностью');
         $(text).on('click', function () {
           $(this).removeAttr('title');
         });
@@ -1546,6 +1577,7 @@ $(function () {
   } else {
     hidePriceChart(0);
   }
+
 
 
   $('.game-images__item').css('display', 'block');
@@ -1661,7 +1693,7 @@ const openChartButtonHeight = document.querySelector('.price-chart-btn-wrap').of
 chartInner.style.setProperty('--bg-height', `${openChartButtonHeight + 30}px`);
 
 
-// старый код, который я просто не удалял на всякий случай
+// ÑÑ‚Ð°Ñ€Ñ‹Ð¹ ÐºÐ¾Ð´, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ñ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð½Ðµ ÑƒÐ´Ð°Ð»ÑÐ» Ð½Ð° Ð²ÑÑÐºÐ¸Ð¹ ÑÐ»ÑƒÑ‡Ð°Ð¹
 
 // function initMobileSlider(isMobile) {
 //     if (!isMobile) {

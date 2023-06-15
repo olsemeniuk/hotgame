@@ -941,6 +941,7 @@ div.filter-block {
   padding: 5px 24px 4px;
 }
 
+.game-info .tag,
 .game-info .genre {
   text-align: center;
 }
@@ -953,6 +954,7 @@ div.filter-block {
   margin-left: -5px;
 }
 
+.game-info .game-genres .tag,
 .game-info .game-genres .genre {
   margin-right: 0;
 }
@@ -1748,8 +1750,9 @@ a .order-by-icon.active,
   background-image: url('../svg/order-icon/discount-date.svg');
 }
 
-.filter-tag .tag,
+.container .tag,
 .container .genre,
+.filter-tag .tag,
 .filter-genre .genre {
   position: relative;
   display: inline-block;
@@ -1761,6 +1764,7 @@ a .order-by-icon.active,
   font-size: 14px;
 }
 
+.container .short-game-description .tag,
 .container .short-game-description .genre {
   margin: 0 0 6px 28px;
 }
@@ -1935,6 +1939,7 @@ a .order-by-icon.active,
   background-image: url('../i/faq/about-us-activation-systems/epic-games.svg');
 }
 
+.container .game .game-info .tag,
 .container .game .game-info .genre {
   margin-top: 8px;
 }
@@ -6576,15 +6581,17 @@ a:hover>.btn-extension-header.opera-addons-icon {
     white-space: nowrap;
   }
 
-  .game-info__details,
-  .game-info__details-icons--hidden {
+  .game-info__details-icons--hidden::after {
+    content: "...";
+  }
+
+  .game-info__details {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .game-info__details-icons--hidden .game-networks,
-  .game-info__details-icons--hidden .genre {
+  .game-info__details-icons--hidden .game-info__icon {
     pointer-events: none;
   }
 
@@ -6592,8 +6599,7 @@ a:hover>.btn-extension-header.opera-addons-icon {
     white-space: unset;
   }
 
-  .game-info__details-icons--show .game-networks,
-  .game-info__details-icons--show .genre {
+  .game-info__details-icons--show .game-info__icon {
     pointer-events: auto;
   }
 
