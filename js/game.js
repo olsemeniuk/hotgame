@@ -1475,6 +1475,7 @@ $(function () {
   truncateText('.game-info-slide .game-info__details', '.game-info', 0);
 
   function truncateText(selector, parentSelector, correction) {
+    if ($(window).width() > 768) return;
     $(selector).each(function (index, text) {
       const parentBlock = text.closest(parentSelector);
       const maxWidth = $(parentBlock).width();
