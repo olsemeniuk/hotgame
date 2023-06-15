@@ -2539,7 +2539,7 @@ a.light-gray:hover {
 }
 
 .sys-rec-body td {
-  vertical-align: top;
+  vertical-align: middle;
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -5945,7 +5945,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .left-side-mobile-tabs li {
     white-space: nowrap;
-    /* ÑƒÐ±Ñ€Ð°Ð» Ð¼Ð°Ñ€Ð´Ð¶Ð¸Ð½Ñ‹ Ð¿Ð¾ Ð±Ð¾ÐºÐ°Ð¼ (Ð±Ñ‹Ð»Ð¾ margin: 10px 10px 0; */
     margin: 10px 0 0;
     padding-bottom: 5px;
     color: #A6A7A6;
@@ -6078,9 +6077,6 @@ a:hover>.btn-extension-header.opera-addons-icon {
 
   .subscribe-block {
     width: 100%;
-    /* Ð·Ð°ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð» Ð½ÐµÐ½ÑƒÐ¶Ð½Ñ‹Ðµ ÑÑ‚Ð¸Ð»Ð¸ */
-    /* margin-left: 0; */
-    /* top: 15%; */
   }
 
   .subscribe-block form {
@@ -6124,6 +6120,10 @@ a:hover>.btn-extension-header.opera-addons-icon {
     padding: 2px;
     background-color: #bb280f;
     border-radius: 0 0 10px 10px;
+  }
+
+  .sys-rec-body td {
+    vertical-align: top;
   }
 
   /* search field styles */
